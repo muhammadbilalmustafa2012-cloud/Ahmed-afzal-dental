@@ -1,0 +1,210 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Book an Appointment | Azeem Afzal Dental Surgery Centre</title>
+    <meta name="description" content="Request an appointment online with Azeem Afzal Dental Surgery Centre in Faisalabad. Fast booking, WhatsApp confirmation, and patient-centered care." />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="/css/responsive.css" />
+    <link rel="stylesheet" href="/css/animations.css" />
+  </head>
+  <body>
+    <!-- Navbar -->
+    <header class="navbar">
+      <div class="container navbar__inner">
+        <a href="/index.html" class="brand">
+          <div class="brand__emblem">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" fill="none">
+              <path d="M24 4C17.5 4 12 7.5 10 13C8.2 18 8.8 24.5 10.5 30C12.2 35.5 15 41.5 18 43.5C20.5 45.2 22 41 23 37C23.5 35 24.5 35 25 37C26 41 27.5 45.2 30 43.5C33 41.5 35.8 35.5 37.5 30C39.2 24.5 39.8 18 38 13C36 7.5 30.5 4 24 4Z" stroke="#0284C7" stroke-width="2.75" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M24 16V26M19 21H29" stroke="#0D9488" stroke-width="2.5" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <div class="brand__text">
+            <span class="brand__name">Azeem Afzal</span>
+            <span class="brand__dept">Dental Surgery Centre</span>
+          </div>
+        </a>
+
+        <nav class="nav-menu">
+          <a href="/index.html" class="nav-link">Home</a>
+          <a href="/about.html" class="nav-link">About</a>
+          <a href="/services.html" class="nav-link">Services</a>
+          <a href="/gallery.html" class="nav-link">Gallery</a>
+          <a href="/appointment.html" class="nav-link active">Appointment</a>
+          <a href="/contact.html" class="nav-link">Contact</a>
+          <a href="tel:+923701309729" data-bind-href="primaryPhone" class="btn btn--outline mobile-drawer-cta">Call Clinic</a>
+        </nav>
+
+        <div class="nav-actions">
+          <a href="tel:+923701309729" data-bind-href="primaryPhone" class="btn btn--outline btn--sm">Call Clinic</a>
+        </div>
+
+        <button class="mobile-toggle" type="button" aria-label="Toggle navigation menu" aria-expanded="false">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="18" y2="18"/></svg>
+        </button>
+      </div>
+    </header>
+
+    <main class="section">
+      <div class="container">
+        <div class="appointment__wrapper">
+          <div class="appointment__form-col">
+            <div class="appointment__header">
+              <span class="badge-tag">Online Booking</span>
+              <h3>Request an Appointment</h3>
+              <p>Please enter your information to schedule your dental consultation or treatment in Jinnah Colony, Faisalabad.</p>
+            </div>
+
+            <form id="appointment-form" novalidate>
+              <div class="form-grid">
+                <div class="form-group form-group--full">
+                  <label class="form-label" for="appointment-name">Full Name <span class="req">*</span></label>
+                  <input type="text" id="appointment-name" class="form-control" placeholder="e.g. Tariq Mehmood" required />
+                </div>
+
+                <div class="form-group">
+                  <label class="form-label" for="appointment-phone">Phone Number <span class="req">*</span></label>
+                  <input type="tel" id="appointment-phone" class="form-control" placeholder="0370 1309729 or 0311 7700766" required />
+                </div>
+
+                <div class="form-group">
+                  <label class="form-label" for="appointment-email">Email Address <span class="req">*</span></label>
+                  <input type="email" id="appointment-email" class="form-control" placeholder="name@example.com" required />
+                </div>
+
+                <div class="form-group">
+                  <label class="form-label" for="appointment-date">Preferred Date <span class="req">*</span></label>
+                  <input type="date" id="appointment-date" class="form-control" required />
+                </div>
+
+                <div class="form-group">
+                  <label class="form-label" for="appointment-time">Preferred Time <span class="req">*</span></label>
+                  <select id="appointment-time" class="form-control" required>
+                    <option value="">Select Time Window</option>
+                    <option value="11:00 AM - 01:00 PM">Morning (11:00 AM - 01:00 PM)</option>
+                    <option value="02:00 PM - 05:00 PM">Afternoon (02:00 PM - 05:00 PM)</option>
+                    <option value="05:00 PM - 08:30 PM">Evening (05:00 PM - 08:30 PM)</option>
+                  </select>
+                </div>
+
+                <div class="form-group form-group--full">
+                  <label class="form-label" for="appointment-service">Dental Service <span class="req">*</span></label>
+                  <select id="appointment-service" class="form-control" required>
+                    <option value="">Select Required Service</option>
+                    <option value="General Dental Care">General Dental Care</option>
+                    <option value="Dental Consultation">Dental Consultation</option>
+                    <option value="Preventive Dentistry">Preventive Dentistry</option>
+                    <option value="Restorative Dentistry">Restorative Dentistry</option>
+                    <option value="Cosmetic Dentistry">Cosmetic Dentistry</option>
+                    <option value="Dental Cleaning">Dental Cleaning</option>
+                    <option value="Crowns & Bridges">Crowns &amp; Bridges</option>
+                    <option value="Root Canal Treatment">Root Canal Treatment</option>
+                    <option value="Other / Need Assessment">Other / Initial Assessment</option>
+                  </select>
+                </div>
+
+                <div class="form-group form-group--full">
+                  <label class="form-label" for="appointment-message">Message or Symptoms</label>
+                  <textarea id="appointment-message" class="form-control" placeholder="Briefly describe your symptoms or any specific requirements..."></textarea>
+                </div>
+              </div>
+
+              <div class="appointment__btn-wrap">
+                <button type="submit" class="btn btn--primary btn--lg" id="appointment-submit-btn">
+                  <span>Request Appointment</span>
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m9 18 6-6-6-6"/></svg>
+                </button>
+              </div>
+            </form>
+          </div>
+
+          <div class="appointment__info-col">
+            <div>
+              <h4 class="info-col__title">Clinic Details</h4>
+              <p class="info-col__desc">
+                Our clinic operates under disciplined sterilization standards with gentle care for every patient.
+              </p>
+
+              <div class="info-col__cards">
+                <div class="info-contact-card">
+                  <div class="info-contact-card__icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                  </div>
+                  <div>
+                    <h5>Primary Helpline</h5>
+                    <a href="tel:+923701309729" data-bind-href="primaryPhone"><span data-bind="primaryPhone">+92 370 1309729</span></a>
+                  </div>
+                </div>
+
+                <div class="info-contact-card">
+                  <div class="info-contact-card__icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                  </div>
+                  <div>
+                    <h5>Additional Phone</h5>
+                    <a href="tel:03117700766" data-bind-href="additionalPhone"><span data-bind="additionalPhone">03117700766</span></a>
+                  </div>
+                </div>
+
+                <div class="info-contact-card">
+                  <div class="info-contact-card__icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                  </div>
+                  <div>
+                    <h5>Operating Hours</h5>
+                    <p data-bind="openingHours">Open · Closes 8:30 PM</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="info-col__whatsapp-notice">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 21l1.9-5.7a8.5 8.5 0 1 1 3.8 3.8z"/></svg>
+              <span>Direct WhatsApp link will open immediately upon submission for swift mobile booking.</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <!-- Appointment Success Modal -->
+    <div class="modal" id="appointment-success-modal" role="dialog" aria-modal="true">
+      <div class="modal__dialog success-modal-content">
+        <div class="success-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+        </div>
+        <h3 class="success-title">Appointment Request Submitted</h3>
+        <p class="success-desc">
+          Your request is recorded. Click below to notify our clinic desk via WhatsApp with one click.
+        </p>
+        <div id="success-modal-details"></div>
+        <div style="display:flex; flex-direction:column; gap:10px;">
+          <a href="#" target="_blank" rel="noopener noreferrer" class="btn btn--teal btn--lg" id="success-whatsapp-btn" style="width:100%;">
+            <span>Open in WhatsApp</span>
+          </a>
+          <button type="button" class="btn btn--outline" id="success-dismiss-btn">Done</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="container">
+        <div class="footer__bottom">
+          <p>&copy; 2026 Azeem Afzal Dental Surgery Centre. All rights reserved.</p>
+          <div class="footer__bottom-links">
+            <a href="/privacy.html">Privacy Policy</a>
+            <a href="/terms.html">Terms</a>
+            <a href="/admin/login.html" class="footer__admin-link">Admin Portal</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <script type="module" src="/js/main.js"></script>
+    <script type="module" src="/js/firebase.js"></script>
+    <script type="module" src="/js/appointments.js"></script>
+  </body>
+</html>

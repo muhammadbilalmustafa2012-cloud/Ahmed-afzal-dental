@@ -1,0 +1,6 @@
+{
+  "name": "Azeem Afzal Dental Surgery Centre",
+  "description": "Premium dental clinic in Jinnah Colony, Faisalabad, Pakistan. Professional dental care, comfortable treatments, verified reviews, and appointment requests.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

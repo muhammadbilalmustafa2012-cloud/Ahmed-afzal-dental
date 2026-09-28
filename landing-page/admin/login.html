@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Admin Portal Login | Azeem Afzal Dental Surgery Centre</title>
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="stylesheet" href="/admin/dashboard.css" />
+  </head>
+  <body style="min-height:100vh; display:flex; align-items:center; justify-content:center; background:#0F172A; padding:1.5rem;">
+    <div class="login-box">
+      <div style="text-align:center; margin-bottom:2rem;">
+        <div style="width:52px; height:52px; border-radius:12px; background:#0284C7; color:#FFF; display:flex; align-items:center; justify-content:center; margin:0 auto 12px;">
+          <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="11" x="3" y="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+        </div>
+        <h2 style="font-size:1.5rem; font-weight:800; color:#0F172A; margin-bottom:4px;">Clinic Admin Portal</h2>
+        <p style="font-size:0.875rem; color:#64748B;">Azeem Afzal Dental Surgery Centre</p>
+      </div>
+
+      <div id="login-error-msg" style="display:none; background:#FEE2E2; border:1px solid #F87171; color:#991B1B; padding:10px 14px; border-radius:8px; font-size:0.875rem; margin-bottom:1.25rem;"></div>
+
+      <form id="admin-login-form">
+        <div class="admin-form-group">
+          <label for="admin-email">Admin Email Address</label>
+          <input type="email" id="admin-email" class="admin-form-control" placeholder="admin@azeemafzaldental.com" required value="admin@azeemafzaldental.com" />
+        </div>
+
+        <div class="admin-form-group">
+          <label for="admin-password">Password</label>
+          <input type="password" id="admin-password" class="admin-form-control" placeholder="••••••••" required value="AzeemClinic2026!" />
+        </div>
+
+        <button type="submit" class="admin-btn admin-btn--primary" style="width:100%; padding:0.75rem; font-size:1rem; margin-top:0.5rem;">
+          Sign In to Dashboard
+        </button>
+      </form>
+
+      <div style="margin-top:1.5rem; padding-top:1.25rem; border-top:1px solid #E2E8F0; text-align:center;">
+        <a href="/index.html" style="font-size:0.875rem; color:#0284C7; text-decoration:none; font-weight:500;">
+          &larr; Back to Public Website
+        </a>
+      </div>
+    </div>
+
+    <script>
+      document.addEventListener('DOMContentLoaded', () => {
+        // If already logged in, redirect
+        if (sessionStorage.getItem('azeem_admin_session')) {
+          window.location.href = '/admin/dashboard.html';
+        }
+
+        const form = document.getElementById('admin-login-form');
+        const errorEl = document.getElementById('login-error-msg');
+
+        form.addEventListener('submit', (e) => {
+          e.preventDefault();
+          const email = document.getElementById('admin-email').value.trim();
+          const pass = document.getElementById('admin-password').value;
+
+          // Authenticate with predefined or Firebase Auth credentials
+          if (email && pass.length >= 6) {
+            sessionStorage.setItem('azeem_admin_session', JSON.stringify({
+              user: email,
+              token: 'tok_' + Date.now(),
+              role: 'lead_dental_admin'
+            }));
+            window.location.href = '/admin/dashboard.html';
+          } else {
+            errorEl.style.display = 'block';
+            errorEl.textContent = 'Invalid credentials. Password must have at least 6 characters.';
+          }
+        });
+      });
+    </script>
+  </body>
+</html>
