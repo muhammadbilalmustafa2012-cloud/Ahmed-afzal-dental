@@ -1,0 +1,959 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Admin Dashboard | Azeem Afzal Dental</title>
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+      *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+      :root {
+        --bg-deep:    #050810;
+        --bg-mid:     #0a0f1d;
+        --bg-card:    rgba(12,20,44,0.85);
+        --bg-input:   rgba(15,25,50,0.8);
+        --border:     rgba(56,189,248,0.15);
+        --border-hover: rgba(56,189,248,0.4);
+        --accent:     #38bdf8;
+        --accent-dim: rgba(56,189,248,0.12);
+        --teal:       #2dd4bf;
+        --red:        #ef4444;
+        --green:      #10b981;
+        --amber:      #f59e0b;
+        --text-1:     #f0f9ff;
+        --text-2:     rgba(186,230,253,0.8);
+        --text-3:     rgba(148,212,251,0.55);
+        --radius:     12px;
+        --sidebar-w:  260px;
+      }
+
+      body {
+        font-family: 'Inter', system-ui, sans-serif;
+        background: linear-gradient(135deg, var(--bg-deep) 0%, var(--bg-mid) 100%);
+        color: var(--text-1);
+        min-height: 100vh;
+      }
+
+      /* LOGIN */
+      #login-overlay {
+        position: fixed; inset: 0;
+        background: rgba(5,8,16,0.97);
+        backdrop-filter: blur(12px);
+        z-index: 10000;
+        display: flex; align-items: center; justify-content: center;
+      }
+      .login-box {
+        background: var(--bg-card);
+        border: 1px solid var(--border);
+        padding: 3rem;
+        border-radius: 20px;
+        box-shadow: 0 16px 64px rgba(2,132,199,0.25);
+        width: 100%; max-width: 420px;
+        text-align: center;
+      }
+      .login-logo { margin-bottom: 1.5rem; }
+      .login-logo svg { width: 52px; height: 52px; }
+      .login-box h2 { color: var(--text-1); margin-bottom: 0.4rem; font-size: 1.5rem; }
+      .login-box p { color: var(--text-2); font-size: 0.875rem; margin-bottom: 2rem; }
+      .login-box input {
+        width: 100%; padding: 0.8rem 1rem; margin-bottom: 0.875rem;
+        background: var(--bg-input); border: 1px solid var(--border);
+        border-radius: 9px; color: var(--text-1); outline: none; font-size: 0.95rem;
+        transition: border-color 0.25s;
+      }
+      .login-box input:focus { border-color: var(--accent); }
+      .login-box button {
+        width: 100%; padding: 0.85rem;
+        background: linear-gradient(135deg, #0284c7, #0d9488);
+        color: #fff; border: none; border-radius: 9px;
+        font-weight: 700; font-size: 1rem; cursor: pointer;
+        transition: opacity 0.25s;
+      }
+      .login-box button:hover { opacity: 0.88; }
+      .login-error { color: var(--red); margin-top: 0.875rem; font-size: 0.85rem; display: none; }
+
+      /* LAYOUT */
+      .admin-layout { display: none; min-height: 100vh; }
+
+      /* SIDEBAR */
+      .sidebar {
+        width: var(--sidebar-w); position: fixed; top: 0; left: 0; bottom: 0;
+        background: rgba(6,10,22,0.97);
+        border-right: 1px solid var(--border);
+        display: flex; flex-direction: column;
+        padding: 1.5rem 1rem; gap: 0.3rem; overflow-y: auto;
+        z-index: 100;
+      }
+      .sidebar-brand {
+        display: flex; align-items: center; gap: 0.75rem;
+        padding: 0.5rem 0.75rem; margin-bottom: 1.5rem; text-decoration: none;
+      }
+      .sidebar-brand svg { width: 36px; height: 36px; flex-shrink: 0; }
+      .brand-text .name { display: block; font-weight: 700; color: var(--text-1); font-size: 0.95rem; }
+      .brand-text .sub  { display: block; font-size: 0.75rem; color: var(--teal); font-weight: 600; }
+      .nav-section-label {
+        font-size: 0.7rem; font-weight: 700; letter-spacing: 0.08em;
+        color: var(--text-3); text-transform: uppercase;
+        padding: 0 0.75rem; margin-top: 0.75rem; margin-bottom: 0.25rem;
+      }
+      .nav-link {
+        display: flex; align-items: center; gap: 0.75rem;
+        padding: 0.7rem 0.875rem; border-radius: 9px;
+        color: var(--text-2); text-decoration: none; font-weight: 500; font-size: 0.9rem;
+        transition: all 0.2s ease; cursor: pointer; border: none; background: none; width: 100%;
+        text-align: left;
+      }
+      .nav-link svg { width: 17px; height: 17px; flex-shrink: 0; }
+      .nav-link:hover { background: var(--accent-dim); color: var(--accent); }
+      .nav-link.active { background: rgba(56,189,248,0.14); color: var(--accent); font-weight: 600; }
+      .nav-link.danger { color: #f87171; }
+      .nav-link.danger:hover { background: rgba(239,68,68,0.08); color: var(--red); }
+      .sidebar-bottom { margin-top: auto; padding-top: 1rem; border-top: 1px solid var(--border); }
+
+      /* MAIN */
+      .main { margin-left: var(--sidebar-w); padding: 2.5rem 3rem; min-height: 100vh; }
+      .page { display: none; }
+      .page.active { display: block; }
+
+      /* PAGE HEADER */
+      .page-header {
+        display: flex; align-items: flex-start; justify-content: space-between;
+        margin-bottom: 2.5rem; flex-wrap: wrap; gap: 1rem;
+      }
+      .page-header h1 { font-size: 1.6rem; color: var(--text-1); }
+      .page-header p  { color: var(--text-2); font-size: 0.875rem; margin-top: 0.2rem; }
+      .page-actions   { display: flex; gap: 0.75rem; flex-wrap: wrap; }
+
+      /* STAT CARDS */
+      .stat-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.25rem; margin-bottom: 2.5rem; }
+      .stat-card {
+        background: var(--bg-card); border: 1px solid var(--border);
+        border-radius: var(--radius); padding: 1.5rem;
+        box-shadow: 0 4px 24px rgba(2,132,199,0.08);
+        transition: border-color 0.25s;
+      }
+      .stat-card:hover { border-color: var(--border-hover); }
+      .stat-label { color: var(--text-2); font-size: 0.82rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.04em; margin-bottom: 0.5rem; }
+      .stat-value { font-size: 2.2rem; font-weight: 800; color: var(--text-1); }
+
+      /* CARD */
+      .card {
+        background: var(--bg-card); border: 1px solid var(--border);
+        border-radius: 16px; padding: 1.75rem;
+        box-shadow: 0 4px 32px rgba(2,132,199,0.08);
+        margin-bottom: 1.5rem;
+      }
+      .card-header {
+        display: flex; align-items: center; justify-content: space-between;
+        margin-bottom: 1.5rem; flex-wrap: wrap; gap: 0.75rem;
+      }
+      .card-header h3 { color: var(--text-1); font-size: 1.05rem; }
+
+      /* TABLE */
+      .table-wrap { overflow-x: auto; }
+      table { width: 100%; border-collapse: collapse; }
+      th {
+        text-align: left; padding: 0.75rem 1rem;
+        color: var(--text-3); font-size: 0.78rem; font-weight: 700;
+        text-transform: uppercase; letter-spacing: 0.05em;
+        border-bottom: 1px solid var(--border);
+      }
+      td {
+        padding: 0.9rem 1rem; color: var(--text-1); font-size: 0.9rem;
+        border-bottom: 1px solid rgba(56,189,248,0.07); vertical-align: middle;
+      }
+      tr:last-child td { border-bottom: none; }
+      tr:hover td { background: rgba(56,189,248,0.03); }
+
+      /* BADGES */
+      .badge { display: inline-block; padding: 0.22rem 0.65rem; border-radius: 20px; font-size: 0.76rem; font-weight: 600; }
+      .badge-teal  { background: rgba(45,212,191,0.12);  color: var(--teal); }
+      .badge-green { background: rgba(16,185,129,0.12);  color: var(--green); }
+      .badge-red   { background: rgba(239,68,68,0.12);   color: var(--red); }
+      .badge-amber { background: rgba(245,158,11,0.12);  color: var(--amber); }
+      .badge-blue  { background: rgba(56,189,248,0.12);  color: var(--accent); }
+
+      /* BUTTONS */
+      .btn {
+        display: inline-flex; align-items: center; gap: 0.4rem;
+        padding: 0.55rem 1.1rem; border-radius: 8px;
+        font-weight: 600; font-size: 0.875rem; cursor: pointer;
+        border: none; transition: all 0.2s ease; text-decoration: none;
+        white-space: nowrap; font-family: inherit;
+      }
+      .btn svg { width: 15px; height: 15px; }
+      .btn-primary { background: linear-gradient(135deg,#0284c7,#0d9488); color: #fff; }
+      .btn-primary:hover { opacity: 0.85; }
+      .btn-outline { background: transparent; border: 1px solid var(--border-hover); color: var(--accent); }
+      .btn-outline:hover { background: var(--accent-dim); }
+      .btn-danger { background: rgba(239,68,68,0.12); color: var(--red); border: 1px solid rgba(239,68,68,0.25); }
+      .btn-danger:hover { background: rgba(239,68,68,0.2); }
+      .btn-green  { background: rgba(16,185,129,0.12); color: var(--green); border: 1px solid rgba(16,185,129,0.25); }
+      .btn-green:hover { background: rgba(16,185,129,0.2); }
+      .btn-sm { padding: 0.35rem 0.75rem; font-size: 0.8rem; }
+
+      /* FORMS */
+      .form-grid   { display: grid; gap: 1.25rem; }
+      .form-grid-2 { grid-template-columns: 1fr 1fr; }
+      .form-grid-3 { grid-template-columns: 1fr 1fr 1fr; }
+      .form-group  { display: flex; flex-direction: column; gap: 0.4rem; }
+      .form-group label { font-size: 0.82rem; font-weight: 600; color: var(--text-2); }
+      .form-control {
+        padding: 0.7rem 0.9rem; background: var(--bg-input);
+        border: 1px solid var(--border); border-radius: 8px;
+        color: var(--text-1); font-size: 0.9rem; outline: none;
+        transition: border-color 0.25s, box-shadow 0.25s;
+        font-family: inherit; width: 100%;
+      }
+      .form-control:focus { border-color: var(--accent); box-shadow: 0 0 0 3px rgba(56,189,248,0.1); }
+      textarea.form-control { resize: vertical; min-height: 80px; }
+      select.form-control option { background: #0f1a2e; }
+      .form-control::placeholder { color: var(--text-3); }
+      .form-hint { font-size: 0.78rem; color: var(--text-3); }
+      .form-actions { display: flex; gap: 0.75rem; justify-content: flex-end; margin-top: 1.5rem; }
+
+      /* MODAL */
+      .modal-overlay {
+        position: fixed; inset: 0; background: rgba(5,8,16,0.85);
+        backdrop-filter: blur(8px); z-index: 9000;
+        display: none; align-items: center; justify-content: center; padding: 1rem;
+      }
+      .modal-overlay.open { display: flex; }
+      .modal {
+        background: #0a0f1f; border: 1px solid var(--border);
+        border-radius: 18px; padding: 2rem; width: 100%; max-width: 560px;
+        box-shadow: 0 24px 80px rgba(2,132,199,0.2);
+        max-height: 90vh; overflow-y: auto;
+      }
+      .modal-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.75rem; }
+      .modal-header h3 { font-size: 1.15rem; color: var(--text-1); }
+      .modal-close {
+        background: none; border: none; color: var(--text-3); cursor: pointer;
+        padding: 0.3rem; border-radius: 6px; line-height: 0;
+      }
+      .modal-close:hover { color: var(--text-1); background: var(--accent-dim); }
+
+      /* ITEM ROWS */
+      .item-row {
+        display: flex; align-items: center; gap: 1rem;
+        padding: 0.875rem; border-radius: 10px;
+        border: 1px solid var(--border); margin-bottom: 0.75rem;
+        transition: border-color 0.2s;
+      }
+      .item-row:hover { border-color: var(--border-hover); }
+      .item-avatar {
+        width: 52px; height: 52px; border-radius: 9px; object-fit: cover;
+        background: rgba(56,189,248,0.08); flex-shrink: 0; border: none;
+      }
+      .item-avatar-ph {
+        width: 52px; height: 52px; border-radius: 9px; flex-shrink: 0;
+        background: linear-gradient(135deg,rgba(2,132,199,0.15),rgba(13,148,136,0.1));
+        border: none;
+        display: flex; align-items: center; justify-content: center;
+      }
+      .item-avatar-ph svg { width: 22px; height: 22px; stroke: var(--accent); }
+      .item-info { flex: 1; min-width: 0; }
+      .item-name  { font-weight: 600; color: var(--text-1); font-size: 0.9rem; }
+      .item-sub   { color: var(--text-2); font-size: 0.8rem; margin-top: 0.15rem; }
+      .item-actions { display: flex; gap: 0.5rem; flex-shrink: 0; }
+
+      /* GALLERY GRID */
+      .gallery-admin-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(180px,1fr)); gap: 1rem; }
+      .gallery-admin-item {
+        border-radius: 12px; overflow: hidden; border: none;
+        position: relative; aspect-ratio: 4/3; background: var(--bg-input);
+        transition: border-color 0.2s;
+      }
+      .gallery-admin-item:hover { border-color: var(--border-hover); }
+      .gallery-admin-item img { width: 100%; height: 100%; object-fit: cover; }
+      .gallery-item-overlay {
+        position: absolute; inset: 0; background: rgba(5,10,25,0.72);
+        display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 0.5rem;
+        opacity: 0; transition: opacity 0.2s;
+      }
+      .gallery-admin-item:hover .gallery-item-overlay { opacity: 1; }
+      .gallery-item-title {
+        position: absolute; bottom: 0; left: 0; right: 0;
+        background: linear-gradient(to top, rgba(5,10,25,0.9), transparent);
+        padding: 0.75rem 0.5rem 0.4rem;
+        font-size: 0.75rem; color: var(--text-1); font-weight: 500;
+      }
+
+      /* TOAST */
+      #toast {
+        position: fixed; bottom: 1.5rem; right: 1.5rem;
+        background: rgba(12,20,44,0.97); border: 1px solid var(--border);
+        border-radius: 10px; padding: 0.875rem 1.25rem;
+        color: var(--text-1); font-size: 0.9rem; font-weight: 500;
+        box-shadow: 0 8px 32px rgba(2,132,199,0.2);
+        transform: translateY(80px); opacity: 0;
+        transition: all 0.3s ease; z-index: 99999;
+        display: flex; align-items: center; gap: 0.6rem; max-width: 340px;
+      }
+      #toast.show { transform: translateY(0); opacity: 1; }
+      #toast.success .toast-icon { color: var(--green); }
+      #toast.error   .toast-icon { color: var(--red); }
+
+      /* EMPTY STATE */
+      .empty-state { text-align: center; padding: 3.5rem 1rem; color: var(--text-3); }
+      .empty-state svg { width: 48px; height: 48px; margin-bottom: 1rem; stroke: var(--text-3); }
+      .empty-state p { font-size: 0.9rem; }
+
+      /* SETTINGS */
+      .settings-section { margin-bottom: 2.5rem; }
+      .settings-section h4 {
+        font-size: 0.82rem; font-weight: 700; text-transform: uppercase;
+        letter-spacing: 0.05em; color: var(--accent); margin-bottom: 1.25rem;
+        padding-bottom: 0.5rem; border-bottom: 1px solid var(--border);
+      }
+
+      /* MOBILE */
+      .mobile-header {
+        display: none; position: sticky; top: 0; z-index: 50;
+        background: rgba(6,10,22,0.97); border-bottom: 1px solid var(--border);
+        padding: 0.875rem 1.25rem; align-items: center; gap: 1rem;
+      }
+      .mobile-toggle-btn { background: none; border: none; color: var(--text-1); cursor: pointer; padding: 0.25rem; line-height: 0; }
+      .sidebar-overlay {
+        display: none; position: fixed; inset: 0;
+        background: rgba(5,8,16,0.5); z-index: 99;
+      }
+      @media (max-width: 900px) {
+        .sidebar { transform: translateX(-100%); transition: transform 0.3s; z-index: 100; }
+        .sidebar.open { transform: translateX(0); }
+        .main { margin-left: 0; padding: 1.5rem; }
+        .form-grid-2, .form-grid-3 { grid-template-columns: 1fr; }
+        .mobile-header { display: flex; }
+        .sidebar-overlay.open { display: block; }
+      }
+    </style>
+  </head>
+  <body>
+
+    <!-- LOGIN -->
+    <div id="login-overlay">
+      <div class="login-box">
+        <div class="login-logo">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" fill="none">
+            <path d="M24 4C17.5 4 12 7.5 10 13C8.2 18 8.8 24.5 10.5 30C12.2 35.5 15 41.5 18 43.5C20.5 45.2 22 41 23 37C23.5 35 24.5 35 25 37C26 41 27.5 45.2 30 43.5C33 41.5 35.8 35.5 37.5 30C39.2 24.5 39.8 18 38 13C36 7.5 30.5 4 24 4Z" stroke="#0284C7" stroke-width="2.75" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M24 16V26M19 21H29" stroke="#0D9488" stroke-width="2.5" stroke-linecap="round"/>
+            <circle cx="34" cy="12" r="2" fill="#38BDF8"/>
+          </svg>
+        </div>
+        <h2>Admin Login</h2>
+        <p>Azeem Afzal Dental Surgery Centre</p>
+        <input type="email" id="admin-email" placeholder="Email Address" autocomplete="email" />
+        <input type="password" id="admin-password" placeholder="Password" autocomplete="current-password" />
+        <button id="login-btn">Secure Login</button>
+        <div class="login-error" id="login-error">Invalid credentials. Access denied.</div>
+      </div>
+    </div>
+
+    <div class="sidebar-overlay" id="sidebar-overlay"></div>
+
+    <!-- ADMIN LAYOUT -->
+    <div class="admin-layout" id="admin-layout">
+
+      <!-- SIDEBAR -->
+      <aside class="sidebar" id="sidebar">
+        <a href="/" class="sidebar-brand">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" fill="none">
+            <path d="M24 4C17.5 4 12 7.5 10 13C8.2 18 8.8 24.5 10.5 30C12.2 35.5 15 41.5 18 43.5C20.5 45.2 22 41 23 37C23.5 35 24.5 35 25 37C26 41 27.5 45.2 30 43.5C33 41.5 35.8 35.5 37.5 30C39.2 24.5 39.8 18 38 13C36 7.5 30.5 4 24 4Z" stroke="#0284C7" stroke-width="2.75" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M24 16V26M19 21H29" stroke="#0D9488" stroke-width="2.5" stroke-linecap="round"/>
+            <circle cx="34" cy="12" r="2" fill="#38BDF8"/>
+          </svg>
+          <div class="brand-text">
+            <span class="name">Azeem Afzal</span>
+            <span class="sub">Admin Panel</span>
+          </div>
+        </a>
+
+        <span class="nav-section-label">Main</span>
+        <button class="nav-link active" data-page="dashboard">
+          <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="7" height="9" x="3" y="3" rx="1"/><rect width="7" height="5" x="14" y="3" rx="1"/><rect width="7" height="9" x="14" y="12" rx="1"/><rect width="7" height="5" x="3" y="16" rx="1"/></svg>
+          Dashboard
+        </button>
+        <button class="nav-link" data-page="appointments">
+          <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" x2="16" y1="2" y2="6"/><line x1="8" x2="8" y1="2" y2="6"/><line x1="3" x2="21" y1="10" y2="10"/></svg>
+          Appointments
+        </button>
+
+        <span class="nav-section-label">Content</span>
+        <button class="nav-link" data-page="services">
+          <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 2H5a2 2 0 0 0-2 2v4m6-6h10a2 2 0 0 1 2 2v4M9 2v20m0 0h10a2 2 0 0 0 2-2V8M9 22H5a2 2 0 0 1-2-2V8m0 0h18"/></svg>
+          Services &amp; Pricing
+        </button>
+        <button class="nav-link" data-page="doctors">
+          <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+          Doctors
+        </button>
+        <button class="nav-link" data-page="gallery">
+          <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="9" cy="9" r="2"/><path d="m21 15-3.086-3.086a2 2 0 0 0-2.828 0L6 21"/></svg>
+          Gallery
+        </button>
+
+        <span class="nav-section-label">Configuration</span>
+        <button class="nav-link" data-page="settings">
+          <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.09a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z"/><circle cx="12" cy="12" r="3"/></svg>
+          Site Settings
+        </button>
+
+        <div class="sidebar-bottom">
+          <a href="/" class="nav-link danger">
+            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+            Back to Website
+          </a>
+          <button class="nav-link danger" id="logout-btn">
+            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" x2="9" y1="12" y2="12"/></svg>
+            Logout
+          </button>
+        </div>
+      </aside>
+
+      <!-- MOBILE HEADER -->
+      <div class="mobile-header">
+        <button class="mobile-toggle-btn" id="mobile-toggle">
+          <svg width="22" height="22" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="18" y2="18"/></svg>
+        </button>
+        <span style="font-weight:700;color:var(--text-1)">Admin Panel</span>
+      </div>
+
+      <!-- MAIN CONTENT -->
+      <main class="main">
+
+        <!-- DASHBOARD -->
+        <section class="page active" id="page-dashboard">
+          <div class="page-header">
+            <div><h1>Dashboard</h1><p>Clinic activity overview</p></div>
+          </div>
+          <div class="stat-grid">
+            <div class="stat-card"><div class="stat-label">Pending Appointments</div><div class="stat-value" id="stat-pending">—</div></div>
+            <div class="stat-card"><div class="stat-label">Total Appointments</div><div class="stat-value" id="stat-total">—</div></div>
+            <div class="stat-card"><div class="stat-label">Active Doctors</div><div class="stat-value" id="stat-doctors">—</div></div>
+            <div class="stat-card"><div class="stat-label">Services Listed</div><div class="stat-value" id="stat-services">—</div></div>
+          </div>
+          <div class="card">
+            <div class="card-header"><h3>Latest Appointments</h3><button class="btn btn-outline btn-sm" data-page="appointments">View All</button></div>
+            <div class="table-wrap">
+              <table>
+                <thead><tr><th>Patient</th><th>Service</th><th>Date &amp; Time</th><th>Status</th></tr></thead>
+                <tbody id="dash-tbody"><tr><td colspan="4" style="text-align:center;color:var(--text-3)">Loading…</td></tr></tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+
+        <!-- APPOINTMENTS -->
+        <section class="page" id="page-appointments">
+          <div class="page-header"><div><h1>Appointments</h1><p>Manage all patient booking requests</p></div></div>
+          <div class="card">
+            <div class="table-wrap">
+              <table>
+                <thead><tr><th>Patient</th><th>Service</th><th>Date / Time</th><th>Phone</th><th>Message</th><th>Status</th><th>Actions</th></tr></thead>
+                <tbody id="appointments-tbody"><tr><td colspan="7" style="text-align:center;color:var(--text-3)">Loading…</td></tr></tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+
+        <!-- SERVICES -->
+        <section class="page" id="page-services">
+          <div class="page-header">
+            <div><h1>Services &amp; Pricing</h1><p>Edit service details and set prices visible on the website</p></div>
+            <div class="page-actions"><button class="btn btn-primary" id="add-service-btn">+ Add Service</button></div>
+          </div>
+          <div class="card"><div id="services-list"></div></div>
+        </section>
+
+        <!-- DOCTORS -->
+        <section class="page" id="page-doctors">
+          <div class="page-header">
+            <div><h1>Doctors</h1><p>Manage the clinic's medical team profiles</p></div>
+            <div class="page-actions"><button class="btn btn-primary" id="add-doctor-btn">+ Add Doctor</button></div>
+          </div>
+          <div class="card"><div id="doctors-list"></div></div>
+        </section>
+
+        <!-- GALLERY -->
+        <section class="page" id="page-gallery">
+          <div class="page-header">
+            <div><h1>Gallery</h1><p>Manage clinic photos shown on the website</p></div>
+            <div class="page-actions"><button class="btn btn-primary" id="add-gallery-btn">+ Add Photo</button></div>
+          </div>
+          <div class="card"><div class="gallery-admin-grid" id="gallery-list"></div></div>
+        </section>
+
+        <!-- SETTINGS -->
+        <section class="page" id="page-settings">
+          <div class="page-header"><div><h1>Site Settings</h1><p>Update clinic info shown across the website</p></div></div>
+          <div class="card">
+            <form id="settings-form">
+              <div class="settings-section">
+                <h4>Clinic Information</h4>
+                <div class="form-grid form-grid-2">
+                  <div class="form-group"><label>Clinic Name</label><input class="form-control" name="clinicName" type="text" /></div>
+                  <div class="form-group"><label>Tagline</label><input class="form-control" name="tagline" type="text" /></div>
+                  <div class="form-group"><label>Primary Phone</label><input class="form-control" name="primaryPhone" type="text" /></div>
+                  <div class="form-group"><label>Additional Phone</label><input class="form-control" name="additionalPhone" type="text" /></div>
+                  <div class="form-group"><label>WhatsApp Number <small style="color:var(--text-3)">(digits only)</small></label><input class="form-control" name="whatsappNumber" type="text" /></div>
+                  <div class="form-group"><label>Email</label><input class="form-control" name="email" type="email" /></div>
+                </div>
+              </div>
+              <div class="settings-section">
+                <h4>Location &amp; Hours</h4>
+                <div class="form-grid form-grid-2">
+                  <div class="form-group" style="grid-column:1/-1"><label>Full Address</label><input class="form-control" name="address" type="text" /></div>
+                  <div class="form-group"><label>Opening Hours Text</label><input class="form-control" name="openingHours" type="text" placeholder="e.g. Open · Closes 8:30 PM" /></div>
+                  <div class="form-group"><label>Google Maps URL</label><input class="form-control" name="googleMapsUrl" type="url" /></div>
+                </div>
+              </div>
+              <div class="settings-section">
+                <h4>Ratings</h4>
+                <div class="form-grid form-grid-3">
+                  <div class="form-group"><label>Google Rating</label><input class="form-control" name="googleRating" type="text" placeholder="e.g. 4.3" /></div>
+                  <div class="form-group"><label>Review Count</label><input class="form-control" name="googleReviewsCount" type="text" /></div>
+                </div>
+              </div>
+              <div class="settings-section">
+                <h4>About Us</h4>
+                <div class="form-group"><label>Short Description</label><textarea class="form-control" name="aboutShort" rows="3"></textarea></div>
+              </div>
+              <div class="form-actions"><button type="submit" class="btn btn-primary">Save All Settings</button></div>
+            </form>
+          </div>
+        </section>
+
+      </main>
+    </div>
+
+    <!-- MODALS -->
+
+    <!-- Service Modal -->
+    <div class="modal-overlay" id="service-modal">
+      <div class="modal">
+        <div class="modal-header">
+          <h3 id="service-modal-title">Add Service</h3>
+          <button class="modal-close" data-close="service-modal">
+            <svg width="18" height="18" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" x2="6" y1="6" y2="18"/><line x1="6" x2="18" y1="6" y2="18"/></svg>
+          </button>
+        </div>
+        <form id="service-form">
+          <input type="hidden" id="service-id" />
+          <div class="form-grid">
+            <div class="form-group"><label>Service Name *</label><input class="form-control" id="service-name" required placeholder="e.g. Teeth Whitening" /></div>
+            <div class="form-group"><label>Category</label><input class="form-control" id="service-category" placeholder="e.g. Cosmetic" /></div>
+            <div class="form-group"><label>Price (Rs.) — leave blank if variable</label><input class="form-control" id="service-price" type="text" placeholder="e.g. 2,500" /></div>
+            <div class="form-group"><label>Duration</label><input class="form-control" id="service-duration" placeholder="e.g. 45 min" /></div>
+            <div class="form-group"><label>Description *</label><textarea class="form-control" id="service-desc" rows="3" required placeholder="Brief description"></textarea></div>
+          </div>
+          <div class="form-actions">
+            <button type="button" class="btn btn-outline" data-close="service-modal">Cancel</button>
+            <button type="submit" class="btn btn-primary">Save Service</button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <!-- Doctor Modal -->
+    <div class="modal-overlay" id="doctor-modal">
+      <div class="modal">
+        <div class="modal-header">
+          <h3 id="doctor-modal-title">Add Doctor</h3>
+          <button class="modal-close" data-close="doctor-modal">
+            <svg width="18" height="18" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" x2="6" y1="6" y2="18"/><line x1="6" x2="18" y1="6" y2="18"/></svg>
+          </button>
+        </div>
+        <form id="doctor-form">
+          <input type="hidden" id="doctor-id" />
+          <div class="form-grid">
+            <div class="form-group"><label>Full Name *</label><input class="form-control" id="doctor-name" required placeholder="Dr. Full Name" /></div>
+            <div class="form-group"><label>Position / Title</label><input class="form-control" id="doctor-position" placeholder="e.g. Lead Dental Surgeon" /></div>
+            <div class="form-group"><label>Qualification</label><input class="form-control" id="doctor-qualification" placeholder="e.g. BDS, FCPS" /></div>
+            <div class="form-group"><label>Specialization</label><input class="form-control" id="doctor-specialization" placeholder="e.g. Restorative Dentistry" /></div>
+            <div class="form-group"><label>Experience</label><input class="form-control" id="doctor-experience" placeholder="e.g. 10+ Years" /></div>
+            <div class="form-group">
+              <label>Photo URL</label>
+              <input class="form-control" id="doctor-image" type="url" placeholder="https://example.com/photo.jpg" />
+              <span class="form-hint">Paste a direct image URL. Leave blank for placeholder.</span>
+            </div>
+            <div class="form-group"><label>Bio</label><textarea class="form-control" id="doctor-bio" rows="3" placeholder="Short professional biography"></textarea></div>
+          </div>
+          <div class="form-actions">
+            <button type="button" class="btn btn-outline" data-close="doctor-modal">Cancel</button>
+            <button type="submit" class="btn btn-primary">Save Doctor</button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <!-- Gallery Modal -->
+    <div class="modal-overlay" id="gallery-modal">
+      <div class="modal">
+        <div class="modal-header">
+          <h3 id="gallery-modal-title">Add Photo</h3>
+          <button class="modal-close" data-close="gallery-modal">
+            <svg width="18" height="18" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" x2="6" y1="6" y2="18"/><line x1="6" x2="18" y1="6" y2="18"/></svg>
+          </button>
+        </div>
+        <form id="gallery-form">
+          <input type="hidden" id="gallery-id" />
+          <div class="form-grid">
+            <div class="form-group"><label>Photo Title *</label><input class="form-control" id="gallery-title" required placeholder="e.g. Treatment Room Setup" /></div>
+            <div class="form-group">
+              <label>Category</label>
+              <select class="form-control" id="gallery-category">
+                <option value="Clinic">Clinic</option>
+                <option value="Equipment">Equipment</option>
+                <option value="Environment">Environment</option>
+                <option value="Treatment">Treatment</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label>Image URL *</label>
+              <input class="form-control" id="gallery-image" required type="url" placeholder="https://example.com/image.jpg" />
+              <span class="form-hint">Direct URL to the image (JPG, PNG, WebP).</span>
+            </div>
+          </div>
+          <div class="form-actions">
+            <button type="button" class="btn btn-outline" data-close="gallery-modal">Cancel</button>
+            <button type="submit" class="btn btn-primary">Save Photo</button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <!-- TOAST -->
+    <div id="toast">
+      <svg class="toast-icon" width="18" height="18" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+      <span id="toast-msg"></span>
+    </div>
+
+    <script type="module">
+      import { dbStore } from '/js/firebase.js';
+
+      // HELPERS (defined first so everything can use them)
+      function esc(s) { return String(s ?? '').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;'); }
+      function statusBadge(s) {
+        const map = { Approved:'badge-green', Pending:'badge-teal', Rejected:'badge-red' };
+        return '<span class="badge ' + (map[s]||'badge-amber') + '">' + esc(s) + '</span>';
+      }
+
+      // TOAST
+      function toast(msg, type) {
+        type = type || 'success';
+        const el = document.getElementById('toast');
+        document.getElementById('toast-msg').textContent = msg;
+        el.className = type;
+        el.classList.add('show');
+        setTimeout(function() { el.classList.remove('show'); }, 3200);
+      }
+
+      // MODAL helpers
+      function openModal(id)  { document.getElementById(id).classList.add('open'); }
+      function closeModal(id) { document.getElementById(id).classList.remove('open'); }
+
+      // SIDEBAR helpers
+      function closeSidebar() {
+        document.getElementById('sidebar').classList.remove('open');
+        document.getElementById('sidebar-overlay').classList.remove('open');
+      }
+
+      // PAGE LOADERS map — uses function declarations so hoisting works
+      const pageLoaders = {
+        dashboard:    loadDashboard,
+        appointments: loadAppointments,
+        services:     loadServices,
+        doctors:      loadDoctors,
+        gallery:      loadGallery,
+        settings:     loadSettings
+      };
+
+      // NAV
+      function navigateTo(pageId) {
+        document.querySelectorAll('.page').forEach(function(p) { p.classList.remove('active'); });
+        document.querySelectorAll('.nav-link[data-page]').forEach(function(l) { l.classList.remove('active'); });
+        const page = document.getElementById('page-' + pageId);
+        if (page) page.classList.add('active');
+        document.querySelectorAll('[data-page="' + pageId + '"]').forEach(function(l) { l.classList.add('active'); });
+        (pageLoaders[pageId] || function(){})();
+        closeSidebar();
+      }
+
+      function initAdmin() { navigateTo('dashboard'); }
+
+      // AUTH
+      const loginOverlay = document.getElementById('login-overlay');
+      const adminLayout  = document.getElementById('admin-layout');
+      const loginBtn     = document.getElementById('login-btn');
+      const errorMsg     = document.getElementById('login-error');
+
+      if (sessionStorage.getItem('admin_auth') === 'true') {
+        loginOverlay.style.display = 'none';
+        adminLayout.style.display  = 'flex';
+        initAdmin();
+      }
+
+      loginBtn.addEventListener('click', function() {
+        const email = document.getElementById('admin-email').value.trim();
+        const pass  = document.getElementById('admin-password').value;
+        if (email === 'ahmedafzaldentalsurgery.com' && pass === 'AHMED AFZAL') {
+          sessionStorage.setItem('admin_auth', 'true');
+          loginOverlay.style.display = 'none';
+          adminLayout.style.display  = 'flex';
+          errorMsg.style.display     = 'none';
+          initAdmin();
+        } else {
+          errorMsg.style.display = 'block';
+          document.getElementById('admin-password').value = '';
+        }
+      });
+      document.getElementById('admin-password').addEventListener('keypress', function(e) { if (e.key === 'Enter') loginBtn.click(); });
+      document.getElementById('logout-btn').addEventListener('click', function() { sessionStorage.removeItem('admin_auth'); location.reload(); });
+
+      // NAV click bindings
+      document.querySelectorAll('[data-page]').forEach(function(el) {
+        el.addEventListener('click', function() { navigateTo(el.getAttribute('data-page')); });
+      });
+
+      // MOBILE SIDEBAR
+      document.getElementById('mobile-toggle').addEventListener('click', function() {
+        document.getElementById('sidebar').classList.toggle('open');
+        document.getElementById('sidebar-overlay').classList.toggle('open');
+      });
+      document.getElementById('sidebar-overlay').addEventListener('click', closeSidebar);
+
+      // MODAL close bindings
+      document.querySelectorAll('[data-close]').forEach(function(btn) {
+        btn.addEventListener('click', function() { closeModal(btn.getAttribute('data-close')); });
+      });
+      document.querySelectorAll('.modal-overlay').forEach(function(overlay) {
+        overlay.addEventListener('click', function(e) { if (e.target === overlay) overlay.classList.remove('open'); });
+      });
+
+      // ─── DASHBOARD ───
+      function loadDashboard() {
+        const apps     = dbStore.get('appointments') || [];
+        const doctors  = dbStore.get('doctors')      || [];
+        const services = dbStore.get('services')     || [];
+        const pending  = apps.filter(a => a.status !== 'Approved' && a.status !== 'Rejected');
+        document.getElementById('stat-pending').textContent  = pending.length;
+        document.getElementById('stat-total').textContent    = apps.length;
+        document.getElementById('stat-doctors').textContent  = doctors.length;
+        document.getElementById('stat-services').textContent = services.length;
+        const tbody = document.getElementById('dash-tbody');
+        if (!apps.length) { tbody.innerHTML = '<tr><td colspan="4" style="text-align:center;color:var(--text-3);padding:2rem">No appointments yet.</td></tr>'; return; }
+        tbody.innerHTML = apps.slice(0,6).map(a => '<tr><td style="font-weight:600">' + esc(a.name) + '</td><td>' + esc(a.service) + '</td><td>' + esc(a.date) + ' <span style="color:var(--text-3);font-size:.82em">' + esc(a.time) + '</span></td><td>' + statusBadge(a.status || 'Pending') + '</td></tr>').join('');
+      }
+
+      // ─── APPOINTMENTS ───
+      function loadAppointments() {
+        const apps  = dbStore.get('appointments') || [];
+        const tbody = document.getElementById('appointments-tbody');
+        if (!apps.length) { tbody.innerHTML = '<tr><td colspan="7" style="text-align:center;color:var(--text-3);padding:2.5rem">No appointments yet.</td></tr>'; return; }
+        tbody.innerHTML = [...apps].reverse().map(a => {
+          const status = a.status || 'Pending';
+          return '<tr>' +
+            '<td style="font-weight:600">' + esc(a.name) + '</td>' +
+            '<td>' + esc(a.service) + '</td>' +
+            '<td>' + esc(a.date) + '<br><span style="color:var(--text-3);font-size:.8em">' + esc(a.time) + '</span></td>' +
+            '<td>' + esc(a.phone) + '</td>' +
+            '<td style="max-width:160px;font-size:.82em;color:var(--text-2)">' + 
+              (esc(a.message || '—').length > 40 
+                ? '<div class="msg-container"><span class="msg-short">' + esc(a.message).substring(0, 40) + '...</span><span class="msg-full" style="display:none">' + esc(a.message) + '</span><br><button onclick="this.previousSibling.previousSibling.style.display=\'none\'; this.previousSibling.style.display=\'inline\'; this.style.display=\'none\'" style="background:none;border:none;color:var(--accent);cursor:pointer;font-size:0.8em;padding:0;margin-top:2px;">View All</button></div>'
+                : esc(a.message || '—')) +
+            '</td>' +
+            '<td>' + statusBadge(status) + '</td>' +
+            '<td><div style="display:flex;gap:.4rem;flex-wrap:wrap">' +
+              (status !== 'Approved' ? '<button class="btn btn-green btn-sm" data-action="approve" data-id="' + a.id + '">Approve</button>' : '') +
+              (status !== 'Rejected' ? '<button class="btn btn-danger btn-sm" data-action="reject" data-id="' + a.id + '">Reject</button>' : '') +
+              '<button class="btn btn-outline btn-sm" data-action="delete" data-id="' + a.id + '">Delete</button>' +
+            '</div></td>' +
+          '</tr>';
+        }).join('');
+        tbody.querySelectorAll('[data-action]').forEach(btn => {
+          btn.addEventListener('click', async () => {
+            // Prevent double-firing by disabling the button immediately
+            if (btn.disabled) return;
+            btn.disabled = true;
+            btn.style.opacity = '0.5';
+
+            const id     = btn.getAttribute('data-id');
+            const action = btn.getAttribute('data-action');
+
+            if (action === 'approve') {
+              await dbStore.updateItem('appointments', id, { status: 'Approved' });
+              toast('Appointment approved ✓');
+            }
+            if (action === 'reject') {
+              await dbStore.updateItem('appointments', id, { status: 'Rejected' });
+              toast('Appointment rejected', 'error');
+            }
+            if (action === 'delete') {
+              if (confirm('Delete this appointment permanently?')) {
+                await dbStore.deleteItem('appointments', id);
+                toast('Appointment deleted', 'error');
+              } else {
+                // Re-enable if user cancelled delete
+                btn.disabled = false;
+                btn.style.opacity = '';
+                return;
+              }
+            }
+
+            // Reload once after action completes
+            loadAppointments();
+            loadDashboard();
+          });
+        });
+      }
+
+      // ─── SERVICES ───
+      function loadServices() {
+        const services = dbStore.get('services') || [];
+        const list = document.getElementById('services-list');
+        if (!services.length) { list.innerHTML = '<div class="empty-state"><p>No services added yet.</p></div>'; return; }
+        list.innerHTML = services.map(s =>
+          '<div class="item-row">' +
+            '<div class="item-avatar-ph"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5"><path d="M9 2H5a2 2 0 0 0-2 2v4m6-6h10a2 2 0 0 1 2 2v4M9 2v20m0 0h10a2 2 0 0 0 2-2V8M9 22H5a2 2 0 0 1-2-2V8m0 0h18"/></svg></div>' +
+            '<div class="item-info">' +
+              '<div class="item-name">' + esc(s.name) + '</div>' +
+              '<div class="item-sub">' +
+                (s.category ? '<span class="badge badge-blue" style="margin-right:.4rem">' + esc(s.category) + '</span>' : '') +
+                (s.price    ? '<span class="badge badge-amber">Rs. ' + esc(s.price) + '</span>' : '<span style="color:var(--text-3);font-size:.78rem">No price set</span>') +
+                (s.duration ? ' <span style="color:var(--text-3);font-size:.78rem;margin-left:.3rem">· ' + esc(s.duration) + '</span>' : '') +
+              '</div>' +
+              '<div style="font-size:.82rem;color:var(--text-2);margin-top:.25rem">' + esc(s.desc) + '</div>' +
+            '</div>' +
+            '<div class="item-actions">' +
+              '<button class="btn btn-outline btn-sm" data-edit-service="' + s.id + '">Edit</button>' +
+              '<button class="btn btn-danger btn-sm" data-del-service="' + s.id + '">Delete</button>' +
+            '</div>' +
+          '</div>'
+        ).join('');
+        list.querySelectorAll('[data-edit-service]').forEach(btn => btn.addEventListener('click', () => openServiceModal(btn.getAttribute('data-edit-service'))));
+        list.querySelectorAll('[data-del-service]').forEach(btn => btn.addEventListener('click', () => {
+          if (confirm('Delete this service?')) { dbStore.deleteItem('services', btn.getAttribute('data-del-service')); toast('Service deleted','error'); loadServices(); }
+        }));
+      }
+      function openServiceModal(id) {
+        document.getElementById('service-modal-title').textContent = id ? 'Edit Service' : 'Add Service';
+        document.getElementById('service-id').value = id || '';
+        const s = id ? (dbStore.get('services') || []).find(x => x.id === id) : null;
+        document.getElementById('service-name').value     = s?.name     || '';
+        document.getElementById('service-desc').value     = s?.desc     || '';
+        document.getElementById('service-category').value = s?.category || '';
+        document.getElementById('service-price').value    = s?.price    || '';
+        document.getElementById('service-duration').value = s?.duration || '';
+        openModal('service-modal');
+      }
+      document.getElementById('add-service-btn').addEventListener('click', () => openServiceModal(null));
+      document.getElementById('service-form').addEventListener('submit', e => {
+        e.preventDefault();
+        const id   = document.getElementById('service-id').value;
+        const data = { name: document.getElementById('service-name').value.trim(), desc: document.getElementById('service-desc').value.trim(), category: document.getElementById('service-category').value.trim(), price: document.getElementById('service-price').value.trim(), duration: document.getElementById('service-duration').value.trim() };
+        id ? (dbStore.updateItem('services', id, data), toast('Service updated')) : (dbStore.addItem('services', data), toast('Service added'));
+        closeModal('service-modal'); loadServices();
+      });
+
+      // ─── DOCTORS ───
+      function loadDoctors() {
+        const doctors = dbStore.get('doctors') || [];
+        const list    = document.getElementById('doctors-list');
+        if (!doctors.length) { list.innerHTML = '<div class="empty-state"><p>No doctors added yet.</p></div>'; return; }
+        list.innerHTML = doctors.map(d =>
+          '<div class="item-row">' +
+            (d.image ? '<img class="item-avatar" src="' + esc(d.image) + '" alt="' + esc(d.name) + '" onerror="this.style.display=\'none\'" />' : '<div class="item-avatar-ph"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg></div>') +
+            '<div class="item-info">' +
+              '<div class="item-name">' + esc(d.name) + '</div>' +
+              '<div class="item-sub">' + esc(d.position || '') + (d.qualification ? ' <span class="badge badge-blue" style="margin-left:.3rem">' + esc(d.qualification) + '</span>' : '') + '</div>' +
+              (d.experience ? '<div style="font-size:.78rem;color:var(--text-3);margin-top:.15rem">' + esc(d.experience) + '</div>' : '') +
+            '</div>' +
+            '<div class="item-actions">' +
+              '<button class="btn btn-outline btn-sm" data-edit-doctor="' + d.id + '">Edit</button>' +
+              '<button class="btn btn-danger btn-sm" data-del-doctor="' + d.id + '">Delete</button>' +
+            '</div>' +
+          '</div>'
+        ).join('');
+        list.querySelectorAll('[data-edit-doctor]').forEach(btn => btn.addEventListener('click', () => openDoctorModal(btn.getAttribute('data-edit-doctor'))));
+        list.querySelectorAll('[data-del-doctor]').forEach(btn => btn.addEventListener('click', () => {
+          if (confirm('Delete this doctor?')) { dbStore.deleteItem('doctors', btn.getAttribute('data-del-doctor')); toast('Doctor deleted','error'); loadDoctors(); }
+        }));
+      }
+      function openDoctorModal(id) {
+        document.getElementById('doctor-modal-title').textContent = id ? 'Edit Doctor' : 'Add Doctor';
+        document.getElementById('doctor-id').value = id || '';
+        const d = id ? (dbStore.get('doctors') || []).find(x => x.id === id) : null;
+        ['name','position','qualification','specialization','experience','image','bio'].forEach(k => {
+          document.getElementById('doctor-' + k).value = d?.[k] || '';
+        });
+        openModal('doctor-modal');
+      }
+      document.getElementById('add-doctor-btn').addEventListener('click', () => openDoctorModal(null));
+      document.getElementById('doctor-form').addEventListener('submit', e => {
+        e.preventDefault();
+        const id   = document.getElementById('doctor-id').value;
+        const data = {};
+        ['name','position','qualification','specialization','experience','image','bio'].forEach(k => { data[k] = document.getElementById('doctor-' + k).value.trim(); });
+        id ? (dbStore.updateItem('doctors', id, data), toast('Doctor updated')) : (dbStore.addItem('doctors', data), toast('Doctor added'));
+        closeModal('doctor-modal'); loadDoctors();
+      });
+
+      // ─── GALLERY ───
+      function loadGallery() {
+        const items = dbStore.get('gallery') || [];
+        const list  = document.getElementById('gallery-list');
+        if (!items.length) { list.innerHTML = '<div class="empty-state" style="grid-column:1/-1"><p>No gallery photos yet.</p></div>'; return; }
+        list.innerHTML = items.map(g =>
+          '<div class="gallery-admin-item">' +
+            '<img src="' + esc(g.image) + '" alt="' + esc(g.title) + '" loading="lazy" />' +
+            '<div class="gallery-item-overlay">' +
+              '<button class="btn btn-outline btn-sm" data-edit-gallery="' + g.id + '">Edit</button>' +
+              '<button class="btn btn-danger btn-sm" data-del-gallery="' + g.id + '">Delete</button>' +
+            '</div>' +
+            '<div class="gallery-item-title">' + esc(g.title) + '</div>' +
+          '</div>'
+        ).join('');
+        list.querySelectorAll('[data-edit-gallery]').forEach(btn => btn.addEventListener('click', () => openGalleryModal(btn.getAttribute('data-edit-gallery'))));
+        list.querySelectorAll('[data-del-gallery]').forEach(btn => btn.addEventListener('click', () => {
+          if (confirm('Remove this photo?')) { dbStore.deleteItem('gallery', btn.getAttribute('data-del-gallery')); toast('Photo removed','error'); loadGallery(); }
+        }));
+      }
+      function openGalleryModal(id) {
+        document.getElementById('gallery-modal-title').textContent = id ? 'Edit Photo' : 'Add Photo';
+        document.getElementById('gallery-id').value = id || '';
+        const g = id ? (dbStore.get('gallery') || []).find(x => x.id === id) : null;
+        document.getElementById('gallery-title').value    = g?.title    || '';
+        document.getElementById('gallery-category').value = g?.category || 'Clinic';
+        document.getElementById('gallery-image').value    = g?.image    || '';
+        openModal('gallery-modal');
+      }
+      document.getElementById('add-gallery-btn').addEventListener('click', () => openGalleryModal(null));
+      document.getElementById('gallery-form').addEventListener('submit', e => {
+        e.preventDefault();
+        const id   = document.getElementById('gallery-id').value;
+        const data = { title: document.getElementById('gallery-title').value.trim(), category: document.getElementById('gallery-category').value, image: document.getElementById('gallery-image').value.trim() };
+        id ? (dbStore.updateItem('gallery', id, data), toast('Photo updated')) : (dbStore.addItem('gallery', data), toast('Photo added'));
+        closeModal('gallery-modal'); loadGallery();
+      });
+
+      // ─── SETTINGS ───
+      function loadSettings() {
+        const s = dbStore.get('settings');
+        if (!s) return;
+        const form = document.getElementById('settings-form');
+        Object.keys(s).forEach(key => { const el = form.querySelector('[name="' + key + '"]'); if (el) el.value = s[key] ?? ''; });
+      }
+      document.getElementById('settings-form').addEventListener('submit', e => {
+        e.preventDefault();
+        const current = dbStore.get('settings') || {};
+        const updated = { ...current };
+        new FormData(e.target).forEach((val, key) => { updated[key] = val; });
+        dbStore.save('settings', updated);
+        toast('Settings saved successfully');
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,1397 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
+    <!-- Primary SEO Meta Tags -->
+    <title>Azeem Afzal Dental Surgery Centre | Dental Clinic in Faisalabad</title>
+    <meta name="description" content="Azeem Afzal Dental Surgery Centre in Jinnah Colony, Faisalabad. Contact the clinic, view services and request a dental appointment." />
+    <meta name="keywords" content="dental clinic faisalabad, dental surgery jinnah colony, dentist faisalabad, azeem afzal dental surgery centre, teeth cleaning, root canal, dental consultation" />
+    <link rel="canonical" href="https://azeemafzaldental.com/" />
+    
+    <!-- Open Graph / Social Media -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Azeem Afzal Dental Surgery Centre | Dental Clinic in Faisalabad" />
+    <meta property="og:description" content="Azeem Afzal Dental Surgery Centre in Jinnah Colony, Faisalabad. Contact the clinic, view services and request a dental appointment." />
+    <meta property="og:image" content="/assets/images/hero.jpg" />
+    
+    <!-- Twitter Cards -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Azeem Afzal Dental Surgery Centre | Dental Clinic in Faisalabad" />
+    <meta name="twitter:description" content="Azeem Afzal Dental Surgery Centre in Jinnah Colony, Faisalabad. Contact the clinic, view services and request a dental appointment." />
+    <meta name="twitter:image" content="/assets/images/hero.jpg" />
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="/css/responsive.css" />
+    <link rel="stylesheet" href="/css/animations.css" />
+
+    <!-- Import Map: resolves bare module specifiers for native ESM -->
+    <script type="importmap">
+    {
+      "imports": {
+        "gsap": "https://esm.sh/gsap@3.12.5",
+        "gsap/ScrollTrigger": "https://esm.sh/gsap@3.12.5/ScrollTrigger"
+      }
+    }
+    </script>
+
+    <!-- Structured Data (Schema.org DentalClinic) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "DentalClinic",
+      "name": "Azeem Afzal Dental Surgery Centre",
+      "image": "/assets/images/hero.jpg",
+      "telephone": "+92 370 1309729",
+      "telephoneAlternate": "03117700766",
+      "priceRange": "$$",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Imam Bargah Road, near Ideal Bakery, Jinnah Colony",
+        "addressLocality": "Faisalabad",
+        "addressRegion": "Punjab",
+        "addressCountry": "PK"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": "31.4187",
+        "longitude": "73.0791"
+      },
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "4.3",
+        "bestRating": "5.0",
+        "worstRating": "1.0",
+        "ratingCount": "15"
+      },
+      "openingHoursSpecification": [
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+          "opens": "11:00",
+          "closes": "20:30"
+        }
+      ],
+      "url": "https://www.google.com/maps/search/?api=1&query=Azeem+Afzal+Dental+Surgery+Centre,+Imam+Bargah+Rd,+Jinnah+Colony,+Faisalabad,+Pakistan"
+    }
+    </script>
+  
+    <style>
+        /* ===== GLOBAL DARK MODE FOUNDATION ===== */
+        body, html, main {
+            background-color: transparent !important;
+        }
+        .hero { 
+            background: transparent !important; 
+            padding-top: 120px !important;
+        }
+        .hero__image-wrapper img { opacity: 0; }
+
+        /* ===== DARK GLASSMORPHISM NAVBAR ===== */
+        .announcement-bar {
+            display: none !important;
+        }
+        .navbar {
+            background: transparent !important;
+            border-bottom: none !important;
+            box-shadow: none !important;
+            position: absolute !important;
+            top: 0 !important;
+            left: 0 !important;
+            width: 100% !important;
+            z-index: 9999 !important;
+        }
+        .navbar.scrolled {
+            background: rgba(8, 12, 28, 0.96) !important;
+            backdrop-filter: blur(20px) !important;
+            -webkit-backdrop-filter: blur(20px) !important;
+            border-bottom: 1px solid rgba(56, 189, 248, 0.18) !important;
+            box-shadow: 0 4px 40px rgba(2, 132, 199, 0.18) !important;
+            position: fixed !important;
+        }
+        .brand__name { color: #f0f9ff !important; }
+        .brand__dept { color: #2dd4bf !important; }
+        .brand__dept::before { color: #38bdf8 !important; }
+        .brand__emblem {
+            background: linear-gradient(135deg, rgba(2,132,199,0.25) 0%, rgba(13,148,136,0.2) 100%) !important;
+            border-color: rgba(56,189,248,0.3) !important;
+            box-shadow: 0 0 16px rgba(56,189,248,0.15) !important;
+        }
+        .nav-link { color: rgba(186,230,253,0.8) !important; }
+        .nav-link:hover, .nav-link.active { color: #38bdf8 !important; }
+        .nav-link::after { background-color: #38bdf8 !important; }
+        .btn--outline {
+            border-color: rgba(56,189,248,0.4) !important;
+            color: #38bdf8 !important;
+        }
+        .btn--outline:hover {
+            background: rgba(56,189,248,0.1) !important;
+            border-color: #38bdf8 !important;
+        }
+        .mobile-toggle svg { stroke: #94d8fb !important; }
+
+        /* ===== SECTION BACKGROUNDS - DARK TRANSLUCENT ===== */
+        .section {
+            background: rgba(10, 15, 29, 0.82) !important;
+            color: #e2f0fb !important;
+            backdrop-filter: blur(4px);
+        }
+        .section--alt {
+            background: rgba(15, 23, 42, 0.88) !important;
+            color: #e2f0fb !important;
+        }
+        .trust-strip {
+            background: rgba(5, 10, 22, 0.9) !important;
+            border-top: 1px solid rgba(56,189,248,0.1);
+            border-bottom: 1px solid rgba(56,189,248,0.1);
+        }
+        .section-title, h2, h3, h4, h5 { color: #f0f9ff !important; }
+        p, .section-desc, .about__lead, .about__body { color: rgba(186,230,253,0.8) !important; }
+        .badge-tag {
+            background: rgba(2,132,199,0.18) !important;
+            color: #38bdf8 !important;
+            border: 1px solid rgba(56,189,248,0.25) !important;
+        }
+
+        /* ===== HERO TOOTH VISUAL ===== */
+        .hero__visual {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+        .hero__tooth-wrapper {
+            position: relative;
+            width: 340px;
+            height: 380px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .tooth-glow-ring {
+            position: absolute;
+            inset: -30px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(56,189,248,0.12) 0%, rgba(13,148,136,0.06) 50%, transparent 70%);
+            animation: toothPulse 3s ease-in-out infinite;
+        }
+        @keyframes toothPulse {
+            0%, 100% { transform: scale(1); opacity: 0.7; }
+            50% { transform: scale(1.08); opacity: 1; }
+        }
+        .tooth-svg-main {
+            width: 260px;
+            height: 300px;
+            filter: drop-shadow(0 0 30px rgba(56,189,248,0.35)) drop-shadow(0 0 60px rgba(13,148,136,0.2));
+            animation: toothFloat 4s ease-in-out infinite;
+        }
+        @keyframes toothFloat {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-14px); }
+        }
+
+        /* ===== TRUST ITEMS ===== */
+        .trust-item__val { color: #38bdf8 !important; }
+        .trust-item__label { color: rgba(148,212,251,0.7) !important; }
+        .trust-item__icon svg { stroke: #38bdf8 !important; }
+
+        /* ===== CARDS & PILLS ===== */
+        .service-card, .doctor-card, .review-card, .contact-detail-card, .about__image-frame, .pillar-item {
+            background: rgba(15,25,50,0.75) !important;
+            border-color: rgba(56,189,248,0.14) !important;
+            color: #e2f0fb !important;
+        }
+        .service-card:hover, .doctor-card:hover, .review-card:hover {
+            border-color: rgba(56,189,248,0.35) !important;
+            box-shadow: 0 8px 32px rgba(2,132,199,0.2) !important;
+        }
+        .contact-detail-card__icon {
+            background: linear-gradient(135deg, rgba(2,132,199,0.2), rgba(13,148,136,0.15)) !important;
+            border-color: rgba(56,189,248,0.2) !important;
+        }
+        .contact-detail-card__icon svg { stroke: #38bdf8 !important; }
+        .hero__floating-card {
+            background: rgba(10,18,40,0.9) !important;
+            border: 1px solid rgba(56,189,248,0.25) !important;
+            backdrop-filter: blur(12px) !important;
+            box-shadow: 0 8px 32px rgba(2,132,199,0.2) !important;
+        }
+        .hero__floating-icon {
+            background: linear-gradient(135deg, rgba(2,132,199,0.25), rgba(13,148,136,0.2)) !important;
+        }
+        .hero__floating-icon svg { stroke: #38bdf8 !important; }
+        .hero__floating-card h4 { color: #f0f9ff !important; }
+        .hero__floating-card p { color: rgba(186,230,253,0.75) !important; }
+
+        /* ===== HERO VERIFIED BADGE ===== */
+        .hero__verified-badge {
+            background: rgba(10,18,40,0.85) !important;
+            border: 1px solid rgba(56,189,248,0.2) !important;
+            backdrop-filter: blur(10px) !important;
+        }
+        .hero__location-chip {
+            background: rgba(2,132,199,0.12) !important;
+            border-color: rgba(56,189,248,0.25) !important;
+            color: #38bdf8 !important;
+        }
+        .hero__title { color: #f0f9ff !important; }
+        .hero__title-accent { color: #38bdf8 !important; }
+        .hero__subtitle { color: rgba(186,230,253,0.85) !important; }
+
+        /* ===== CONTACT SECTION DARK ===== */
+        #contact.section {
+            background: linear-gradient(135deg, rgba(6,11,25,0.95) 0%, rgba(10,18,40,0.95) 50%, rgba(5,15,30,0.95) 100%) !important;
+            border-top: 1px solid rgba(56,189,248,0.12);
+            position: relative;
+            overflow: hidden;
+        }
+        #contact.section::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -20%;
+            width: 60%;
+            height: 200%;
+            background: radial-gradient(ellipse, rgba(2,132,199,0.06) 0%, transparent 60%);
+            pointer-events: none;
+        }
+        #contact.section::after {
+            content: '';
+            position: absolute;
+            top: -20%;
+            right: -15%;
+            width: 50%;
+            height: 150%;
+            background: radial-gradient(ellipse, rgba(13,148,136,0.05) 0%, transparent 60%);
+            pointer-events: none;
+        }
+        .contact__grid {
+            display: grid !important;
+            grid-template-columns: 1fr 1.5fr !important;
+            gap: 2.5rem !important;
+            align-items: start !important;
+        }
+        .contact-cards-stack {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+        .contact-detail-card {
+            background: rgba(15,25,50,0.8) !important;
+            border: 1px solid rgba(56,189,248,0.15) !important;
+            border-radius: 14px !important;
+            padding: 1.25rem 1.5rem !important;
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(8px);
+        }
+        .contact-detail-card:hover {
+            border-color: rgba(56,189,248,0.35) !important;
+            box-shadow: 0 8px 32px rgba(2,132,199,0.18) !important;
+            transform: translateX(4px);
+        }
+        .contact-detail-card h4 { color: #f0f9ff !important; font-size: 0.95rem; margin-bottom: 4px; }
+        .contact-detail-card p, .contact-detail-card a { color: rgba(186,230,253,0.8) !important; font-size: 0.875rem; }
+        .contact-detail-card a:hover { color: #38bdf8 !important; }
+        .contact-actions-bar { display: flex; flex-wrap: wrap; gap: 0.75rem; margin-top: 0.5rem; }
+        .map-container {
+            border-radius: 18px !important;
+            overflow: hidden !important;
+            border: 1px solid rgba(56,189,248,0.2) !important;
+            box-shadow: 0 8px 48px rgba(2,132,199,0.2), 0 0 0 1px rgba(56,189,248,0.08) !important;
+            position: relative;
+        }
+        .map-container::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            border-radius: 18px;
+            box-shadow: inset 0 0 40px rgba(2,132,199,0.06);
+            pointer-events: none;
+        }
+        .map-container iframe { height: 460px !important; width: 100% !important; }
+
+        /* ===== FOOTER DARK ===== */
+        .footer {
+            background: linear-gradient(180deg, #070b18 0%, #050810 100%) !important;
+            border-top: 1px solid rgba(56,189,248,0.12) !important;
+        }
+
+        /* ===== FORM INPUTS DARK ===== */
+        input, textarea, select {
+            background: rgba(15,25,50,0.7) !important;
+            border-color: rgba(56,189,248,0.2) !important;
+            color: #e2f0fb !important;
+        }
+        input::placeholder, textarea::placeholder { color: rgba(148,212,251,0.4) !important; }
+        input:focus, textarea:focus {
+            border-color: #38bdf8 !important;
+            box-shadow: 0 0 0 3px rgba(56,189,248,0.12) !important;
+            outline: none;
+        }
+        label { color: rgba(186,230,253,0.85) !important; }
+
+        /* ===== MOBILE DRAWER DARK ===== */
+        .mobile-drawer {
+            background: rgba(8,12,28,0.98) !important;
+            border-left: 1px solid rgba(56,189,248,0.15) !important;
+        }
+
+        /* ===== GALLERY DARK ===== */
+        .gallery-item { border-color: rgba(56,189,248,0.12) !important; }
+        .gallery-item:hover { box-shadow: 0 8px 32px rgba(2,132,199,0.25) !important; }
+
+        /* ===== APPOINTMENT FORM DARK MODE ===== */
+        #appointment.section--alt {
+            background: linear-gradient(135deg, rgba(8,14,32,0.95) 0%, rgba(12,20,44,0.95) 100%) !important;
+        }
+        .appointment__wrapper {
+            background: transparent !important;
+        }
+        .appointment__form-col {
+            background: rgba(12,20,44,0.9) !important;
+            border: 1px solid rgba(56,189,248,0.15) !important;
+            border-radius: 20px !important;
+            box-shadow: 0 8px 48px rgba(2,132,199,0.12) !important;
+        }
+        .appointment__form-col h2,
+        .appointment__form-col .section-title { color: #f0f9ff !important; }
+        .appointment__form-col p,
+        .appointment__form-col label { color: rgba(186,230,253,0.8) !important; }
+        .appointment__form-col .badge-tag {
+            background: rgba(2,132,199,0.18) !important;
+            color: #38bdf8 !important;
+            border-color: rgba(56,189,248,0.25) !important;
+        }
+        .form-control {
+            background: rgba(15,25,50,0.75) !important;
+            border: 1px solid rgba(56,189,248,0.2) !important;
+            color: #e2f0fb !important;
+            border-radius: 8px !important;
+        }
+        .form-control:focus {
+            border-color: #38bdf8 !important;
+            box-shadow: 0 0 0 3px rgba(56,189,248,0.12) !important;
+            outline: none !important;
+            background: rgba(15,25,60,0.9) !important;
+        }
+        .form-control::placeholder { color: rgba(148,212,251,0.35) !important; }
+        select.form-control option { background: #0f1a2e; color: #e2f0fb; }
+        .appointment__info-col {
+            background: rgba(8,14,30,0.85) !important;
+            border: 1px solid rgba(56,189,248,0.12) !important;
+            border-radius: 20px !important;
+        }
+        .info-col__title { color: #f0f9ff !important; }
+        .info-col__desc { color: rgba(186,230,253,0.75) !important; }
+        .info-contact-card {
+            background: rgba(15,25,50,0.75) !important;
+            border: 1px solid rgba(56,189,248,0.15) !important;
+            border-radius: 12px !important;
+        }
+        .info-contact-card:hover {
+            border-color: rgba(56,189,248,0.35) !important;
+            transform: translateX(3px);
+        }
+        .info-contact-card__icon {
+            background: linear-gradient(135deg, rgba(2,132,199,0.25), rgba(13,148,136,0.2)) !important;
+            border: 1px solid rgba(56,189,248,0.2) !important;
+        }
+        .info-contact-card__icon svg { stroke: #38bdf8 !important; }
+        .info-contact-card h5 { color: #f0f9ff !important; }
+        .info-contact-card p, .info-contact-card a { color: rgba(186,230,253,0.8) !important; }
+        .info-contact-card a:hover { color: #38bdf8 !important; }
+        .info-col__whatsapp-notice {
+            background: rgba(13,148,136,0.1) !important;
+            border: 1px solid rgba(45,212,191,0.2) !important;
+            color: rgba(186,230,253,0.8) !important;
+            border-radius: 10px !important;
+        }
+        .info-col__whatsapp-notice svg { stroke: #2dd4bf !important; }
+
+        /* ===== TEAM / DOCTORS DARK MODE ===== */
+        #team.section { background: rgba(8,14,28,0.9) !important; }
+        .team-card {
+            background: rgba(12,20,44,0.85) !important;
+            border: 1px solid rgba(56,189,248,0.12) !important;
+            border-radius: 16px !important;
+            overflow: hidden !important;
+            transition: all 0.3s ease !important;
+        }
+        .team-card:hover {
+            border-color: rgba(56,189,248,0.35) !important;
+            box-shadow: 0 12px 40px rgba(2,132,199,0.2) !important;
+            transform: translateY(-4px) !important;
+        }
+        .team-card__image-wrap { position: relative; overflow: hidden; }
+        .team-card__image-wrap img {
+            width: 100%; height: 240px; object-fit: cover;
+            filter: brightness(0.9) saturate(1.1);
+            transition: transform 0.4s ease;
+        }
+        .team-card:hover .team-card__image-wrap img { transform: scale(1.05); }
+        .team-card__placeholder-avatar {
+            background: linear-gradient(135deg, rgba(2,132,199,0.15), rgba(13,148,136,0.1)) !important;
+            border-bottom: 1px solid rgba(56,189,248,0.15) !important;
+        }
+        .team-card__name { color: #f0f9ff !important; }
+        .team-card__role { color: #38bdf8 !important; font-weight: 600 !important; }
+        .team-card__qual {
+            background: rgba(56,189,248,0.08) !important;
+            border: 1px solid rgba(56,189,248,0.15) !important;
+            color: #94d8fb !important;
+            border-radius: 6px !important;
+        }
+        .team-card__bio { color: rgba(186,230,253,0.75) !important; }
+        .team-card__cta {
+            border-color: rgba(56,189,248,0.35) !important;
+            color: #38bdf8 !important;
+        }
+        .team-card__cta:hover {
+            background: rgba(56,189,248,0.1) !important;
+        }
+
+        /* ===== GALLERY DARK MODE ===== */
+        #gallery.section--alt { background: rgba(10,16,32,0.92) !important; }
+        .gallery-nav { background: rgba(15,25,50,0.7) !important; border-radius: 12px; padding: 4px; }
+        .gallery-tab {
+            background: transparent !important;
+            color: rgba(148,212,251,0.7) !important;
+            border-radius: 8px !important;
+            transition: all 0.25s ease !important;
+        }
+        .gallery-tab.active, .gallery-tab:hover {
+            background: rgba(2,132,199,0.2) !important;
+            color: #38bdf8 !important;
+        }
+        .gallery-item {
+            border-radius: 14px !important;
+            overflow: hidden !important;
+            border: 1px solid rgba(56,189,248,0.12) !important;
+            transition: all 0.3s ease !important;
+        }
+        .gallery-item:hover {
+            border-color: rgba(56,189,248,0.4) !important;
+            box-shadow: 0 8px 32px rgba(2,132,199,0.25) !important;
+            transform: translateY(-3px) !important;
+        }
+        .gallery-item img { filter: brightness(0.85) saturate(1.1); transition: all 0.4s ease; }
+        .gallery-item:hover img { filter: brightness(1) saturate(1.2); transform: scale(1.04); }
+        .gallery-item__overlay {
+            background: linear-gradient(to top, rgba(6,12,28,0.92) 0%, rgba(6,12,28,0.4) 60%, transparent 100%) !important;
+        }
+        .gallery-item__category {
+            background: rgba(2,132,199,0.3) !important;
+            color: #38bdf8 !important;
+            border: 1px solid rgba(56,189,248,0.25) !important;
+        }
+        .gallery-item__caption { color: #f0f9ff !important; }
+
+        /* ===== REVIEWS DARK MODE ===== */
+        #reviews.section { background: rgba(6,12,24,0.95) !important; }
+        .reviews-banner { background: linear-gradient(135deg, rgba(2,132,199,0.15), rgba(13,148,136,0.1)) !important; border-color: rgba(56,189,248,0.15) !important; }
+        .reviews-summary__score { color: #38bdf8 !important; }
+        .review-card { background: rgba(12,20,44,0.85) !important; border-color: rgba(56,189,248,0.12) !important; }
+        .review-card:hover { border-color: rgba(56,189,248,0.3) !important; box-shadow: 0 8px 32px rgba(2,132,199,0.15) !important; }
+        .review-card__author { color: #f0f9ff !important; }
+        .review-card__text { color: rgba(186,230,253,0.8) !important; }
+
+        /* ===== CONTACT DETAIL CARD FIX ===== */
+        .contact-detail-card {
+            display: flex !important;
+            align-items: flex-start !important;
+            gap: 1.25rem !important;
+            visibility: visible !important;
+            opacity: 1 !important;
+        }
+        .contact-detail-card__icon {
+            width: 46px !important;
+            height: 46px !important;
+            min-width: 46px !important;
+            border-radius: 10px !important;
+            background: linear-gradient(135deg, rgba(2,132,199,0.25), rgba(13,148,136,0.2)) !important;
+            border: 1px solid rgba(56,189,248,0.25) !important;
+            display: flex !important;
+            align-items: center !important;
+            justify-content: center !important;
+            flex-shrink: 0 !important;
+        }
+        .contact-detail-card__icon svg {
+            width: 20px !important;
+            height: 20px !important;
+            stroke: #38bdf8 !important;
+        }
+        .contact-detail-card__content h4 {
+            color: #f0f9ff !important;
+            font-size: 0.95rem !important;
+            font-weight: 700 !important;
+            margin-bottom: 4px !important;
+        }
+        .contact-detail-card__content p {
+            color: rgba(186,230,253,0.8) !important;
+            font-size: 0.875rem !important;
+            line-height: 1.5 !important;
+        }
+        .contact-detail-card__content a {
+            color: #38bdf8 !important;
+            font-weight: 600 !important;
+        }
+        .contact-detail-card__content a:hover { text-decoration: underline !important; }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 768px) {
+            .contact__grid { grid-template-columns: 1fr !important; }
+            .hero__tooth-wrapper { width: 240px; height: 270px; }
+            .tooth-svg-main { width: 190px; height: 220px; }
+        }
+    </style>
+</head>
+
+  <body>
+
+    <!-- Top Announcement Bar -->
+    <aside class="announcement-bar" aria-label="Clinic Status and Contacts">
+      <div class="container announcement-bar__inner">
+        <div class="announcement-info">
+          <span class="announcement-item">
+            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+            <span>Imam Bargah Road, near Ideal Bakery, Jinnah Colony, Faisalabad</span>
+          </span>
+          <span class="announcement-item">
+            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            <a href="tel:+923701309729" data-bind-href="primaryPhone"><span data-bind="primaryPhone">+92 370 1309729</span></a>
+          </span>
+        </div>
+        <div class="announcement-status">
+          <span class="pulse-dot"></span>
+          <span data-bind="openingHours">Open · Closes 8:30 PM</span>
+        </div>
+      </div>
+    </aside>
+
+    <!-- Sticky Header Navigation -->
+    <header class="navbar" id="site-header">
+      <div class="container navbar__inner">
+        <!-- Brand Logo -->
+        <a href="#home" class="brand" aria-label="Azeem Afzal Dental Surgery Centre Home">
+          <div class="brand__emblem">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" fill="none">
+              <path d="M24 4C17.5 4 12 7.5 10 13C8.2 18 8.8 24.5 10.5 30C12.2 35.5 15 41.5 18 43.5C20.5 45.2 22 41 23 37C23.5 35 24.5 35 25 37C26 41 27.5 45.2 30 43.5C33 41.5 35.8 35.5 37.5 30C39.2 24.5 39.8 18 38 13C36 7.5 30.5 4 24 4Z" stroke="#0284C7" stroke-width="2.75" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M24 16V26M19 21H29" stroke="#0D9488" stroke-width="2.5" stroke-linecap="round"/>
+              <circle cx="34" cy="12" r="2" fill="#38BDF8"/>
+            </svg>
+          </div>
+          <div class="brand__text">
+            <span class="brand__name">Azeem Afzal</span>
+            <span class="brand__dept">Dental Surgery Centre</span>
+          </div>
+        </a>
+
+        <!-- Desktop Navigation Menu -->
+        <nav class="nav-menu" aria-label="Primary Navigation">
+          <a href="#home" class="nav-link active">Home</a>
+          <a href="#about" class="nav-link">About</a>
+          <a href="#services" class="nav-link">Services</a>
+          <a href="#team" class="nav-link">Doctors</a>
+          <a href="#gallery" class="nav-link">Gallery</a>
+          <a href="#reviews" class="nav-link">Reviews</a>
+          <a href="#contact" class="nav-link">Contact</a>
+          <a href="admin.html" class="nav-link" style="color: #f59e0b !important;">Admin</a>
+          <a href="#appointment" class="btn btn--primary mobile-drawer-cta">Book Appointment</a>
+        </nav>
+
+        <!-- Navbar Action Buttons -->
+        <div class="nav-actions">
+          <a href="tel:+923701309729" data-bind-href="primaryPhone" class="btn btn--outline btn--sm" aria-label="Call clinic directly">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            <span>Call Clinic</span>
+          </a>
+          <a href="#appointment" class="btn btn--primary btn--sm">Book Appointment</a>
+        </div>
+
+        <!-- Mobile Drawer Toggle -->
+        <button class="mobile-toggle" type="button" aria-label="Toggle navigation menu" aria-expanded="false">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="18" y2="18"/></svg>
+        </button>
+      </div>
+    </header>
+
+    <main id="main-content">
+      <!-- 1. Hero Section -->
+      <section class="hero" id="home">
+        <div class="container hero__grid">
+          <div class="hero__content">
+            <div class="hero__location-chip">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+              <span>Jinnah Colony, Faisalabad</span>
+            </div>
+
+            <h1 class="hero__title">
+              Confident Smiles Begin With <span class="hero__title-accent">Exceptional</span> Dental Care
+            </h1>
+
+            <p class="hero__subtitle">
+              Professional dental care focused on comfort, precision and healthier smiles in Faisalabad.
+            </p>
+
+            <div class="hero__cta-group">
+              <a href="#appointment" class="btn btn--primary btn--lg">
+                <span>Book an Appointment</span>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg>
+              </a>
+
+              <a href="https://www.google.com/maps/search/?api=1&query=Azeem+Afzal+Dental+Surgery+Centre,+Imam+Bargah+Rd,+Jinnah+Colony,+Faisalabad,+Pakistan" target="_blank" rel="noopener noreferrer" class="btn btn--outline btn--lg">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+                <span>Get Directions</span>
+              </a>
+            </div>
+
+            <!-- Verified Google Maps Rating Badge -->
+            <div class="hero__verified-badge">
+              <div class="verified-rating">
+                <span class="verified-score">4.3</span>
+                <div class="verified-stars" aria-label="4.3 out of 5 stars">
+                  <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                  <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                  <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                  <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                  <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                </div>
+              </div>
+              <span class="verified-count">15 Google Reviews · Verified Rating</span>
+            </div>
+          </div>
+
+          <!-- Hero Visual & 3D Tooth Animation -->
+          <div class="hero__visual">
+            <div class="hero__tooth-wrapper">
+              <!-- Glow pulse ring -->
+              <div class="tooth-glow-ring"></div>
+
+              <!-- 3D-style Tooth SVG -->
+              <svg class="tooth-svg-main" viewBox="0 0 200 240" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <defs>
+                  <radialGradient id="tg1" cx="40%" cy="30%" r="65%">
+                    <stop offset="0%" stop-color="#ffffff"/>
+                    <stop offset="40%" stop-color="#e0f2fe"/>
+                    <stop offset="75%" stop-color="#bae6fd"/>
+                    <stop offset="100%" stop-color="#7dd3fc"/>
+                  </radialGradient>
+                  <radialGradient id="tg2" cx="75%" cy="25%" r="50%">
+                    <stop offset="0%" stop-color="rgba(255,255,255,0.9)"/>
+                    <stop offset="100%" stop-color="rgba(255,255,255,0)"/>
+                  </radialGradient>
+                  <filter id="tGlow">
+                    <feGaussianBlur stdDeviation="3" result="blur"/>
+                    <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+                  </filter>
+                </defs>
+                <path d="M100 12 C72 12 52 28 46 52 C40 76 42 108 48 132 C52 148 56 160 62 170 C68 180 74 184 80 182 C86 180 90 172 93 162 C96 152 100 148 100 148 C100 148 104 152 107 162 C110 172 114 180 120 182 C126 184 132 180 138 170 C144 160 148 148 152 132 C158 108 160 76 154 52 C148 28 128 12 100 12 Z" fill="url(#tg1)" filter="url(#tGlow)"/>
+                <path d="M80 24 C68 30 58 44 54 60 C52 68 52 76 54 80 C62 62 74 46 90 36 C86 32 83 28 80 24 Z" fill="url(#tg2)" opacity="0.8"/>
+                <path d="M82 148 C78 160 72 176 68 188 C66 194 66 200 68 204 C70 208 74 208 78 204 C82 198 86 186 90 172 C88 164 86 156 82 148 Z" fill="url(#tg1)" opacity="0.85"/>
+                <path d="M118 148 C122 160 128 176 132 188 C134 194 134 200 132 204 C130 208 126 208 122 204 C118 198 114 186 110 172 C112 164 114 156 118 148 Z" fill="url(#tg1)" opacity="0.85"/>
+                <path d="M100 148 C100 148 96 138 96 120 C96 102 98 88 100 76 C102 88 104 102 104 120 C104 138 100 148 100 148 Z" fill="rgba(100,160,210,0.25)"/>
+                <ellipse cx="78" cy="42" rx="8" ry="5" fill="rgba(255,255,255,0.5)" transform="rotate(-20,78,42)"/>
+                <ellipse cx="122" cy="42" rx="6" ry="4" fill="rgba(255,255,255,0.4)" transform="rotate(15,122,42)"/>
+                <path d="M100 12 C72 12 52 28 46 52 C40 76 42 108 48 132 C52 148 56 160 62 170 C68 180 74 184 80 182 C86 180 90 172 93 162 C96 152 100 148 100 148 C100 148 104 152 107 162 C110 172 114 180 120 182 C126 184 132 180 138 170 C144 160 148 148 152 132 C158 108 160 76 154 52 C148 28 128 12 100 12 Z" fill="none" stroke="rgba(56,189,248,0.45)" stroke-width="1.5"/>
+              </svg>
+
+              <!-- Floating hygiene card -->
+              <div class="hero__floating-card animate-float" style="position:absolute; bottom:10px; right:-20px;">
+                <div class="hero__floating-icon">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                </div>
+                <div>
+                  <h4>Clinical Hygiene First</h4>
+                  <p>Sterilized precision instruments &amp; welcoming atmosphere</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 2. Trust / Stats Strip (Verified Google Maps Information) -->
+      <section class="trust-strip" aria-label="Verified Clinic Information">
+        <div class="container trust-strip__grid">
+          <div class="trust-item">
+            <div class="trust-item__icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            </div>
+            <div class="trust-item__data">
+              <span class="trust-item__val"><span data-counter="4.3">4.3</span> / 5</span>
+              <span class="trust-item__label">Google Rating</span>
+            </div>
+          </div>
+
+          <div class="trust-item">
+            <div class="trust-item__icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+            </div>
+            <div class="trust-item__data">
+              <span class="trust-item__val" data-counter="15">15</span>
+              <span class="trust-item__label">Google Reviews</span>
+            </div>
+          </div>
+
+          <div class="trust-item">
+            <div class="trust-item__icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+            </div>
+            <div class="trust-item__data">
+              <span class="trust-item__val" style="font-size:1.35rem;">Jinnah Colony</span>
+              <span class="trust-item__label">Faisalabad, Pakistan</span>
+            </div>
+          </div>
+
+          <div class="trust-item">
+            <div class="trust-item__icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            </div>
+            <div class="trust-item__data">
+              <span class="trust-item__val" style="font-size:1.35rem;">Closes 8:30 PM</span>
+              <span class="trust-item__label">Opening Schedule</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 3. About Section -->
+      <section class="section" id="about">
+        <div class="container about__grid">
+          <div class="about__media">
+            <div class="about__image-frame">
+              <img src="/assets/images/reception.jpg" alt="Welcoming reception and clinic interior" loading="lazy" />
+            </div>
+            <div class="about__floating-badge">
+              <h4>Patient Centric</h4>
+              <p>Attentive care in a calm, modern environment on Imam Bargah Road.</p>
+            </div>
+          </div>
+
+          <div class="about__content">
+            <span class="badge-tag">About Our Centre</span>
+            <h2 class="section-title">A Trusted Dental Care Destination in Faisalabad</h2>
+            
+            <p class="about__lead">
+              Azeem Afzal Dental Surgery Centre provides professional dental care in Jinnah Colony, Faisalabad, with a focus on patient comfort, careful treatment and a welcoming clinical experience.
+            </p>
+
+            <p class="about__body">
+              Located near Ideal Bakery on Imam Bargah Road, our facility provides personalized oral health consultations and treatments. We maintain strict hygiene protocols and dedicated clinical focus so each patient feels informed and confident throughout their visit.
+            </p>
+
+            <div class="about__pillars">
+              <div class="pillar-item">
+                <div class="pillar-icon">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg>
+                </div>
+                <div class="pillar-content">
+                  <h5>Patient Comfort</h5>
+                  <p>Gentle handling, clear communication, and relaxing clinical surroundings.</p>
+                </div>
+              </div>
+
+              <div class="pillar-item">
+                <div class="pillar-icon">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                </div>
+                <div class="pillar-content">
+                  <h5>Sterility &amp; Care</h5>
+                  <p>Meticulous sterilization procedures for every instrument and surface.</p>
+                </div>
+              </div>
+            </div>
+
+            <button type="button" class="btn btn--outline" id="about-learn-more-btn">
+              <span>Learn More About Our Clinic</span>
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+            </button>
+
+            <!-- Expandable detail block -->
+            <div class="about-expandable" id="about-expandable-details">
+              <h4 style="font-weight:700; color:var(--color-navy); margin-bottom:8px;">Visiting Our Clinic</h4>
+              <p style="font-size:0.875rem; color:var(--color-text-secondary); line-height:1.6; margin-bottom:12px;">
+                Appointments can be booked in advance or requested online through our quick appointment form. We are situated in Jinnah Colony, one of Faisalabad's most accessible neighborhoods.
+              </p>
+              <p style="font-size:0.875rem; color:var(--color-text-secondary); line-height:1.6;">
+                <strong>Location:</strong> Imam Bargah Road, near Ideal Bakery, Jinnah Colony, Faisalabad, Pakistan (Plus Code: C3C7+GX).
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 4. Services Section (Clearly Structured, Editable Placeholders) -->
+      <section class="section section--alt" id="services">
+        <div class="container">
+          <div class="section-header">
+            <span class="badge-tag badge-tag--blue">Dental Services</span>
+            <h2 class="section-title">Comprehensive Dental Healthcare</h2>
+            <p class="section-desc">
+              Structured dental care designed for lasting oral wellness, aesthetic smiles, and functional comfort. All services are easily customizable.
+            </p>
+          </div>
+
+          <!-- Services dynamic grid (rendered from js/components.js & dbStore) -->
+          <div class="services-grid" id="services-grid-container">
+            <!-- Rendered dynamically from components.js -->
+          </div>
+        </div>
+      </section>
+
+      <!-- 5. Doctors / Clinic Team (Editable Placeholder Cards) -->
+      <section class="section" id="team">
+        <div class="container">
+          <div class="section-header">
+            <span class="badge-tag">Clinic Team</span>
+            <h2 class="section-title">Meet Our Dental Care Team</h2>
+            <p class="section-desc">
+              Professional dental practitioners dedicated to attentive patient care in Faisalabad.
+            </p>
+          </div>
+
+          <div class="team-grid" id="team-grid-container">
+            <!-- Rendered dynamically from components.js -->
+          </div>
+        </div>
+      </section>
+
+      <!-- 6. Gallery Section (Categories, Lightbox & Zoom) -->
+      <section class="section section--alt" id="gallery">
+        <div class="container">
+          <div class="section-header">
+            <span class="badge-tag">Visual Tour</span>
+            <h2 class="section-title">Clinic Environment &amp; Facilities</h2>
+            <p class="section-desc">
+              Explore our modern treatment suites, sterile instruments, and welcoming patient lounge.
+            </p>
+          </div>
+
+          <!-- Category Navigation Tabs -->
+          <div class="gallery-nav" role="tablist">
+            <button class="gallery-tab active" data-filter="all" type="button">All Views</button>
+            <button class="gallery-tab" data-filter="clinic" type="button">Clinic</button>
+            <button class="gallery-tab" data-filter="treatment" type="button">Treatment</button>
+            <button class="gallery-tab" data-filter="equipment" type="button">Equipment</button>
+            <button class="gallery-tab" data-filter="environment" type="button">Environment</button>
+          </div>
+
+          <!-- Gallery Items Grid -->
+          <div class="gallery-grid" id="gallery-grid-container">
+            <!-- Rendered dynamically from components.js -->
+          </div>
+        </div>
+      </section>
+
+      <!-- 7. Google Reviews Section (Authentic Rating Data) -->
+      <section class="section" id="reviews">
+        <div class="container">
+          <div class="reviews-banner">
+            <div class="reviews-summary">
+              <span class="badge-tag badge-tag--dark">Verified Rating</span>
+              <div class="reviews-summary__score">
+                4.3 <span>/ 5</span>
+              </div>
+              <div class="reviews-summary__stars" aria-label="4.3 out of 5 stars">
+                <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+              </div>
+              <p class="reviews-summary__count">Based on 15 verified Google reviews from our patients in Faisalabad.</p>
+              
+              <div class="reviews-summary__actions">
+                <a href="https://www.google.com/maps/search/?api=1&query=Azeem+Afzal+Dental+Surgery+Centre,+Imam+Bargah+Rd,+Jinnah+Colony,+Faisalabad,+Pakistan" target="_blank" rel="noopener noreferrer" class="btn btn--outline-white btn--lg">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" x2="21" y1="14" y2="3"/></svg>
+                  <span>View Google Reviews</span>
+                </a>
+              </div>
+            </div>
+
+            <!-- Dynamic or Authorized patient quotes -->
+            <div id="reviews-list-container">
+              <!-- Rendered dynamically from components.js -->
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 8. Appointment Section (Form + WhatsApp Dispatch) -->
+      <section class="section section--alt" id="appointment">
+        <div class="container">
+          <div class="appointment__wrapper">
+            <!-- Booking Form -->
+            <div class="appointment__form-col">
+              <div class="appointment__header">
+                <span class="badge-tag">Online Booking</span>
+                <h3>Request an Appointment</h3>
+                <p>Fill in your details below and our team will confirm your consultation slot promptly.</p>
+              </div>
+
+              <form id="appointment-form" novalidate>
+                <div class="form-grid">
+                  <div class="form-group form-group--full">
+                    <label class="form-label" for="appointment-name">Full Name <span class="req">*</span></label>
+                    <input type="text" id="appointment-name" class="form-control" placeholder="e.g. Muhammad Bilal" required />
+                  </div>
+
+                  <div class="form-group">
+                    <label class="form-label" for="appointment-phone">Phone Number <span class="req">*</span></label>
+                    <input type="tel" id="appointment-phone" class="form-control" placeholder="0370 1309729 or 0311 7700766" required />
+                  </div>
+
+                  <div class="form-group">
+                    <label class="form-label" for="appointment-email">Email Address <span class="req">*</span></label>
+                    <input type="email" id="appointment-email" class="form-control" placeholder="name@example.com" required />
+                  </div>
+
+                  <div class="form-group">
+                    <label class="form-label" for="appointment-date">Preferred Date <span class="req">*</span></label>
+                    <input type="date" id="appointment-date" class="form-control" required />
+                  </div>
+
+                  <div class="form-group">
+                    <label class="form-label" for="appointment-time">Preferred Time <span class="req">*</span></label>
+                    <select id="appointment-time" class="form-control" required>
+                      <option value="">Select Time Window</option>
+                      <option value="11:00 AM - 01:00 PM">Morning (11:00 AM - 01:00 PM)</option>
+                      <option value="02:00 PM - 05:00 PM">Afternoon (02:00 PM - 05:00 PM)</option>
+                      <option value="05:00 PM - 08:30 PM">Evening (05:00 PM - 08:30 PM)</option>
+                    </select>
+                  </div>
+
+                  <div class="form-group form-group--full">
+                    <label class="form-label" for="appointment-service">Dental Service <span class="req">*</span></label>
+                    <select id="appointment-service" class="form-control" required>
+                      <option value="">Select Required Service</option>
+                      <option value="General Dental Care">General Dental Care</option>
+                      <option value="Dental Consultation">Dental Consultation</option>
+                      <option value="Preventive Dentistry">Preventive Dentistry</option>
+                      <option value="Restorative Dentistry">Restorative Dentistry</option>
+                      <option value="Cosmetic Dentistry">Cosmetic Dentistry</option>
+                      <option value="Dental Cleaning">Dental Cleaning</option>
+                      <option value="Crowns & Bridges">Crowns &amp; Bridges</option>
+                      <option value="Root Canal Treatment">Root Canal Treatment</option>
+                      <option value="Other / Need Assessment">Other / Initial Assessment</option>
+                    </select>
+                  </div>
+
+                  <div class="form-group form-group--full">
+                    <label class="form-label" for="appointment-message">Brief Note / Symptoms</label>
+                    <textarea id="appointment-message" class="form-control" placeholder="Please describe any tooth pain, sensitivity, or questions you have..."></textarea>
+                  </div>
+                </div>
+
+                <div class="appointment__btn-wrap">
+                  <button type="submit" class="btn btn--primary btn--lg" id="appointment-submit-btn">
+                    <span>Request Appointment</span>
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg>
+                  </button>
+                </div>
+              </form>
+            </div>
+
+            <!-- Clinic Info & WhatsApp Side Column -->
+            <div class="appointment__info-col">
+              <div>
+                <h4 class="info-col__title">Direct Clinic Contacts</h4>
+                <p class="info-col__desc">
+                  Prefer direct communication? Call or WhatsApp our surgery centre directly for urgent queries or same-day scheduling.
+                </p>
+
+                <div class="info-col__cards">
+                  <div class="info-contact-card">
+                    <div class="info-contact-card__icon">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+                    </div>
+                    <div>
+                      <h5>Clinic Address</h5>
+                      <p data-bind="address">Imam Bargah Road, near Ideal Bakery, Jinnah Colony, Faisalabad, Pakistan</p>
+                    </div>
+                  </div>
+
+                  <div class="info-contact-card">
+                    <div class="info-contact-card__icon">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                    </div>
+                    <div>
+                      <h5>Primary Phone</h5>
+                      <a href="tel:+923701309729" data-bind-href="primaryPhone"><span data-bind="primaryPhone">+92 370 1309729</span></a>
+                    </div>
+                  </div>
+
+                  <div class="info-contact-card">
+                    <div class="info-contact-card__icon">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                    </div>
+                    <div>
+                      <h5>Additional Phone</h5>
+                      <a href="tel:03117700766" data-bind-href="additionalPhone"><span data-bind="additionalPhone">03117700766</span></a>
+                    </div>
+                  </div>
+
+                  <div class="info-contact-card">
+                    <div class="info-contact-card__icon">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                    </div>
+                    <div>
+                      <h5>Hours Today</h5>
+                      <p data-bind="openingHours">Open · Closes 8:30 PM</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="info-col__whatsapp-notice">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21l1.9-5.7a8.5 8.5 0 1 1 3.8 3.8z"/></svg>
+                <span>Submitting prepares an instant WhatsApp confirmation link with your booking data.</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 9. Contact & Location Section with Google Maps -->
+      <section class="section" id="contact">
+        <div class="container">
+          <div class="section-header">
+            <span class="badge-tag">Find Our Clinic</span>
+            <h2 class="section-title">Visit Azeem Afzal Dental Surgery Centre</h2>
+            <p class="section-desc">
+              Easily accessible in Jinnah Colony, Faisalabad near Ideal Bakery on Imam Bargah Road.
+            </p>
+          </div>
+
+          <div class="contact__grid">
+            <div class="contact-cards-stack">
+              <!-- Clinic Info Header -->
+              <div style="margin-bottom:0.5rem;">
+                <div style="display:flex; align-items:center; gap:0.75rem; margin-bottom:1rem;">
+                  <div style="width:42px;height:42px;border-radius:10px;background:linear-gradient(135deg,rgba(2,132,199,0.3),rgba(13,148,136,0.25));border:1px solid rgba(56,189,248,0.3);display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#38bdf8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M24 4C17.5 4 12 7.5 10 13C8.2 18 8.8 24.5 10.5 30C12.2 35.5 15 41.5 18 43.5C20.5 45.2 22 41 23 37C23.5 35 24.5 35 25 37C26 41 27.5 45.2 30 43.5C33 41.5 35.8 35.5 37.5 30C39.2 24.5 39.8 18 38 13C36 7.5 30.5 4 24 4Z"/><path d="M12 8V14M9 11H15" stroke="#38bdf8" stroke-width="2"/></svg>
+                  </div>
+                  <div>
+                    <h3 style="color:#f0f9ff;font-size:1.1rem;font-weight:700;margin:0;">Azeem Afzal Dental Centre</h3>
+                    <span style="font-size:0.8125rem;color:#38bdf8;font-weight:600;">Jinnah Colony, Faisalabad</span>
+                  </div>
+                </div>
+                <!-- Quick stats strip -->
+                <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:0.75rem;margin-bottom:1rem;">
+                  <div style="background:rgba(2,132,199,0.1);border:1px solid rgba(56,189,248,0.18);border-radius:10px;padding:0.75rem;text-align:center;">
+                    <div style="font-size:1.4rem;font-weight:800;color:#38bdf8;line-height:1;">4.3</div>
+                    <div style="font-size:0.7rem;color:rgba(148,212,251,0.75);margin-top:2px;">Google Rating</div>
+                  </div>
+                  <div style="background:rgba(13,148,136,0.1);border:1px solid rgba(45,212,191,0.18);border-radius:10px;padding:0.75rem;text-align:center;">
+                    <div style="font-size:1.4rem;font-weight:800;color:#2dd4bf;line-height:1;">15+</div>
+                    <div style="font-size:0.7rem;color:rgba(148,212,251,0.75);margin-top:2px;">Reviews</div>
+                  </div>
+                  <div style="background:rgba(56,189,248,0.08);border:1px solid rgba(56,189,248,0.15);border-radius:10px;padding:0.75rem;text-align:center;">
+                    <div style="font-size:1.4rem;font-weight:800;color:#7dd3fc;line-height:1;">6d</div>
+                    <div style="font-size:0.7rem;color:rgba(148,212,251,0.75);margin-top:2px;">Open/Week</div>
+                  </div>
+                </div>
+              </div>
+              <!-- Address Card -->
+              <div class="contact-detail-card">
+                <div class="contact-detail-card__icon">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+                </div>
+                <div class="contact-detail-card__content">
+                  <h4>Clinic Address</h4>
+                  <p data-bind="address">Imam Bargah Road, near Ideal Bakery, Jinnah Colony, Faisalabad, Pakistan</p>
+                  <p style="font-size:0.8125rem; color:var(--color-text-muted); margin-top:4px;">Plus Code: C3C7+GX Faisalabad, Pakistan</p>
+                </div>
+              </div>
+
+              <!-- Phones Card -->
+              <div class="contact-detail-card">
+                <div class="contact-detail-card__icon">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                </div>
+                <div class="contact-detail-card__content">
+                  <h4>Contact Numbers</h4>
+                  <p>Primary: <a href="tel:+923701309729" data-bind-href="primaryPhone"><strong data-bind="primaryPhone">+92 370 1309729</strong></a></p>
+                  <p>Additional: <a href="tel:03117700766" data-bind-href="additionalPhone"><strong data-bind="additionalPhone">03117700766</strong></a></p>
+                </div>
+              </div>
+
+              <!-- Hours Card -->
+              <div class="contact-detail-card">
+                <div class="contact-detail-card__icon">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                </div>
+                <div class="contact-detail-card__content">
+                  <h4>Opening Hours</h4>
+                  <p data-bind="openingHours">Open · Closes 8:30 PM</p>
+                  <p style="font-size:0.8125rem; color:var(--color-text-muted); margin-top:4px;">Monday through Saturday</p>
+                </div>
+              </div>
+
+              <!-- Action Buttons -->
+              <div class="contact-actions-bar">
+                <a href="tel:+923701309729" data-bind-href="primaryPhone" class="btn btn--primary">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                  <span>Call Now</span>
+                </a>
+
+                <a href="https://wa.me/923701309729" target="_blank" rel="noopener noreferrer" class="btn btn--teal">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21l1.9-5.7a8.5 8.5 0 1 1 3.8 3.8z"/></svg>
+                  <span>WhatsApp</span>
+                </a>
+
+                <a href="https://www.google.com/maps/search/?api=1&query=Azeem+Afzal+Dental+Surgery+Centre,+Imam+Bargah+Rd,+Jinnah+Colony,+Faisalabad,+Pakistan" target="_blank" rel="noopener noreferrer" class="btn btn--outline">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+                  <span>Get Directions</span>
+                </a>
+              </div>
+            </div>
+
+            <!-- Embedded Google Map -->
+            <div class="map-container">
+              <iframe 
+                title="Azeem Afzal Dental Surgery Centre Location Map"
+                src="https://maps.google.com/maps?q=Azeem+Afzal+Dental+Surgery+Centre,+Imam+Bargah+Rd,+Jinnah+Colony,+Faisalabad,+Pakistan&t=&z=16&ie=UTF8&iwloc=&output=embed" 
+                loading="lazy" 
+                allowfullscreen>
+              </iframe>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Floating Action Buttons (Mobile & Desktop Accessible) -->
+    <div class="floating-actions" aria-label="Quick Communication Actions">
+      <a href="https://wa.me/923701309729" target="_blank" rel="noopener noreferrer" class="fab-btn fab-btn--whatsapp" aria-label="Chat with clinic on WhatsApp">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21l1.9-5.7a8.5 8.5 0 1 1 3.8 3.8z"/></svg>
+        <span>WhatsApp</span>
+      </a>
+
+      <a href="tel:+923701309729" data-bind-href="primaryPhone" class="fab-btn fab-btn--call" aria-label="Call clinic phone">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+        <span>Call</span>
+      </a>
+
+      <a href="#appointment" class="fab-btn fab-btn--book" aria-label="Book dental appointment">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="18" x="3" y="4" rx="2" ry="2"/><line x1="16" x2="16" y1="2" y2="6"/><line x1="8" x2="8" y1="2" y2="6"/><line x1="3" x2="21" y1="10" y2="10"/></svg>
+        <span>Book<span class="fab-text-short"> Appointment</span></span>
+      </a>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="container">
+        <div class="footer__grid">
+          <!-- Brand Column -->
+          <div class="footer__brand">
+            <div class="brand">
+              <div class="brand__emblem" style="background:rgba(255,255,255,0.08); border-color:rgba(255,255,255,0.15);">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" fill="none">
+                  <path d="M24 4C17.5 4 12 7.5 10 13C8.2 18 8.8 24.5 10.5 30C12.2 35.5 15 41.5 18 43.5C20.5 45.2 22 41 23 37C23.5 35 24.5 35 25 37C26 41 27.5 45.2 30 43.5C33 41.5 35.8 35.5 37.5 30C39.2 24.5 39.8 18 38 13C36 7.5 30.5 4 24 4Z" stroke="#38BDF8" stroke-width="2.75" stroke-linecap="round" stroke-linejoin="round"/>
+                  <path d="M24 16V26M19 21H29" stroke="#2DD4BF" stroke-width="2.5" stroke-linecap="round"/>
+                </svg>
+              </div>
+              <div class="brand__text">
+                <span class="brand__name">Azeem Afzal</span>
+                <span class="brand__dept">Dental Surgery Centre</span>
+              </div>
+            </div>
+            <p class="footer__tagline">
+              Dedicated to comfortable, patient-centered dental health and precision treatments in Jinnah Colony, Faisalabad, Pakistan.
+            </p>
+          </div>
+
+          <!-- Quick Links -->
+          <div>
+            <h4 class="footer__col-title">Quick Navigation</h4>
+            <ul class="footer__links">
+              <li><a href="#home">Home</a></li>
+              <li><a href="#about">About Our Centre</a></li>
+              <li><a href="#services">Dental Services</a></li>
+              <li><a href="#gallery">Clinic Gallery</a></li>
+              <li><a href="#reviews">Google Reviews</a></li>
+              <li><a href="#contact">Contact &amp; Location</a></li>
+            </ul>
+          </div>
+
+          <!-- Dedicated Pages -->
+          <div>
+            <h4 class="footer__col-title">Clinic Pages</h4>
+            <ul class="footer__links">
+              <li><a href="/about.html">About Page</a></li>
+              <li><a href="/services.html">Services Catalog</a></li>
+              <li><a href="/gallery.html">Photo Gallery</a></li>
+              <li><a href="/appointment.html">Book Appointment</a></li>
+              <li><a href="/contact.html">Directions &amp; Map</a></li>
+            </ul>
+          </div>
+
+          <!-- Contact Summary -->
+          <div>
+            <h4 class="footer__col-title">Clinic Contact</h4>
+            <div class="footer__contact-info">
+              <div class="footer__contact-item">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                <a href="tel:+923701309729" data-bind-href="primaryPhone"><span data-bind="primaryPhone">+92 370 1309729</span></a>
+              </div>
+              <div class="footer__contact-item">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+                <span data-bind="address">Imam Bargah Road, near Ideal Bakery, Jinnah Colony, Faisalabad</span>
+              </div>
+              <div class="footer__contact-item">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                <span data-bind="openingHours">Open · Closes 8:30 PM</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="footer__bottom">
+          <p>&copy; 2026 Azeem Afzal Dental Surgery Centre. All rights reserved.</p>
+          
+          <div class="footer__bottom-links">
+            <a href="/privacy.html">Privacy Policy</a>
+            <a href="/terms.html">Terms &amp; Conditions</a>
+            <a href="/admin/login.html" class="footer__admin-link">
+              <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="11" x="3" y="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+              <span>Admin Portal</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Service Detail Modal -->
+    <div class="modal" id="service-modal" role="dialog" aria-modal="true" aria-labelledby="modal-service-title">
+      <div class="modal__dialog">
+        <button class="modal__close" type="button" aria-label="Close modal">
+          <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" x2="6" y1="6" y2="18"/><line x1="6" x2="18" y1="6" y2="18"/></svg>
+        </button>
+        <div style="width:48px; height:48px; border-radius:8px; background:#F0F9FF; color:#0284C7; display:flex; align-items:center; justify-content:center; margin-bottom:16px;">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2C7 2 4 5 4 10c0 4 2 8 3.5 11 1.5 3 2.5 1 3 0 .7-1.3 1-2 1.5-2s.8.7 1.5 2c.5 1 1.5 3 3 0 1.5-3 3.5-7 3.5-11 0-5-3-8-8-8z"/></svg>
+        </div>
+        <h3 id="modal-service-title" style="font-size:1.5rem; font-weight:800; color:var(--color-navy); margin-bottom:8px;">Dental Service</h3>
+        <p id="modal-service-desc" style="font-size:0.9375rem; color:var(--color-text-secondary); line-height:1.7; margin-bottom:24px;"></p>
+        <div style="display:flex; gap:12px; justify-content:flex-end;">
+          <a href="#appointment" class="btn btn--primary" id="modal-book-service">Book This Service</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Gallery Lightbox Modal -->
+    <div class="lightbox" id="gallery-lightbox" role="dialog" aria-modal="true" aria-label="Image Zoom">
+      <button class="lightbox__close" type="button" aria-label="Close Lightbox">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" x2="6" y1="6" y2="18"/><line x1="6" x2="18" y1="6" y2="18"/></svg>
+      </button>
+      <figure class="lightbox__figure">
+        <img class="lightbox__img" src="" alt="Zoomed view" />
+        <figcaption class="lightbox__caption"></figcaption>
+      </figure>
+    </div>
+
+    <!-- Appointment Success Modal -->
+    <div class="modal" id="appointment-success-modal" role="dialog" aria-modal="true" aria-labelledby="success-title">
+      <div class="modal__dialog success-modal-content">
+        <button class="modal__close" type="button" aria-label="Close dialog">
+          <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" x2="6" y1="6" y2="18"/><line x1="6" x2="18" y1="6" y2="18"/></svg>
+        </button>
+        <div class="success-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+        </div>
+        <h3 class="success-title" id="success-title">Appointment Request Submitted</h3>
+        <p class="success-desc">
+          Your request has been recorded. Click below to instantly send the formatted appointment details to our clinic WhatsApp for rapid confirmation.
+        </p>
+        <div id="success-modal-details"></div>
+        <div style="display:flex; flex-direction:column; gap:10px;">
+          <a href="#" target="_blank" rel="noopener noreferrer" class="btn btn--teal btn--lg" id="success-whatsapp-btn" style="width:100%;">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21l1.9-5.7a8.5 8.5 0 1 1 3.8 3.8z"/></svg>
+            <span>Open in WhatsApp</span>
+          </a>
+          <button type="button" class="btn btn--outline" id="success-dismiss-btn">Done</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Core Scripts -->
+    <script type="module" src="/js/main.js"></script>
+    <script type="module" src="/js/animations.js"></script>
+    <script type="module" src="/js/firebase.js"></script>
+    <script type="module" src="/js/components.js"></script>
+    <script type="module" src="/js/appointments.js"></script>
+  
+    <canvas id="animation-canvas" style="position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; z-index: -1; pointer-events: none;"></canvas>
+    <script>
+        const canvas = document.getElementById('animation-canvas');
+        const context = canvas.getContext('2d');
+
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+
+        const frameCount = 300;
+        const currentFrame = index => `frame_${index.toString().padStart(6, '0')}.jpg`;
+        const images = [];
+        let lastRenderedIndex = 0;
+
+        const preloadImages = () => {
+            for (let i = 0; i < frameCount; i++) {
+                images[i] = new Image();
+                images[i].src = currentFrame(i);
+            }
+        };
+
+        const drawImage = (img) => {
+            if (!img || !img.complete || img.naturalWidth === 0) return false;
+            const scale = Math.max(canvas.width / img.width, canvas.height / img.height);
+            const x = (canvas.width / 2) - (img.width / 2) * scale;
+            const y = (canvas.height / 2) - (img.height / 2) * scale;
+            context.clearRect(0, 0, canvas.width, canvas.height);
+            context.drawImage(img, x, y, img.width * scale, img.height * scale);
+            return true;
+        };
+
+        const renderFrame = (index) => {
+            const success = drawImage(images[index]);
+            if (success) {
+                lastRenderedIndex = index;
+            } else if (images[lastRenderedIndex]) {
+                drawImage(images[lastRenderedIndex]);
+            }
+        };
+
+        preloadImages();
+        images[0].onload = () => drawImage(images[0]);
+
+        let ticking = false;
+        window.addEventListener('scroll', () => {
+            if (!ticking) {
+                requestAnimationFrame(() => {
+                    const scrollTop = document.documentElement.scrollTop;
+                    const maxScrollTop = document.documentElement.scrollHeight - window.innerHeight;
+                    const scrollFraction = maxScrollTop > 0 ? scrollTop / maxScrollTop : 0;
+                    const frameIndex = Math.min(frameCount - 1, Math.max(0, Math.floor(scrollFraction * frameCount)));
+                    renderFrame(frameIndex);
+                    ticking = false;
+                });
+                ticking = true;
+            }
+        });
+
+        window.addEventListener('resize', () => {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+            renderFrame(lastRenderedIndex);
+        });
+    </script>
+</body>
+
+</html>
