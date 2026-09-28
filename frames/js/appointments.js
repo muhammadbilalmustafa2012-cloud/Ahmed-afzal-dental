@@ -27,7 +27,7 @@ function initAppointmentForm() {
   const form = document.getElementById('appointment-form');
   if (!form) return;
 
-  form.addEventListener('submit', (e) => {
+  form.addEventListener('submit', async (e) => {
     e.preventDefault();
 
     // 1. Gather fields
@@ -99,6 +99,12 @@ function initAppointmentForm() {
       return;
     }
 
+    // Show loading state
+    const submitBtn = form.querySelector('button[type="submit"]');
+    const originalBtnText = submitBtn.innerText;
+    submitBtn.innerText = 'Booking...';
+    submitBtn.disabled = true;
+
     // 3. Prepare appointment record
     const appointmentRecord = {
       name:        nameInput.value.trim(),
@@ -113,7 +119,11 @@ function initAppointmentForm() {
     };
 
     // 4. Save appointment to Firebase Firestore
-    dbStore.addItem('appointments', appointmentRecord);
+    try {
+      await dbStore.addItem('appointments', appointmentRecord);
+    } catch(err) {
+      console.error(err);
+    }
 
     // 5. Build WhatsApp message
     const whatsappText =
@@ -134,14 +144,14 @@ _This appointment was booked via the clinic website._`;
 
     // 6. Reset form first
     form.reset();
+    submitBtn.innerText = originalBtnText;
+    submitBtn.disabled = false;
 
     // 7. Show a brief success toast
     showToast('Appointment booked! Opening WhatsApp...', 'success');
 
-    // 8. Auto-open WhatsApp immediately (no modal, no extra clicks)
-    setTimeout(() => {
-      window.open(whatsappUrl, '_blank', 'noopener,noreferrer');
-    }, 600); // tiny delay so the toast is visible before redirect
+    // 8. Auto-open WhatsApp immediately
+    window.location.href = whatsappUrl;
   });
 }
 

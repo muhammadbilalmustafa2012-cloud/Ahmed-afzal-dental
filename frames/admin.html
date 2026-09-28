@@ -725,6 +725,16 @@
       });
       document.getElementById('sidebar-overlay').addEventListener('click', closeSidebar);
 
+      // DATASTORE REAL-TIME UPDATES
+      window.addEventListener('datastore:updated', (e) => {
+        // Find which page is currently active and reload it
+        const activePage = document.querySelector('.page.active');
+        if (activePage) {
+          const pageId = activePage.id.replace('page-', '');
+          if (pageLoaders[pageId]) pageLoaders[pageId]();
+        }
+      });
+
       // MODAL close bindings
       document.querySelectorAll('[data-close]').forEach(function(btn) {
         btn.addEventListener('click', function() { closeModal(btn.getAttribute('data-close')); });
@@ -802,10 +812,6 @@
                 return;
               }
             }
-
-            // Reload once after action completes
-            loadAppointments();
-            loadDashboard();
           });
         });
       }
